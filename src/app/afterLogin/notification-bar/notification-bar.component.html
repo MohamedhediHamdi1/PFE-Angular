@@ -1,0 +1,13 @@
+<div class="body">
+    <div class="h3">Notifications</div>
+    <div class="line"></div>
+    <div class="notif_list" *ngFor="let list of notifications" (click)="clickNotifications(list.notificationId!)" [ngStyle]="!list.click ? {'background-color':'#020716'}:{}">
+      <img src="assets/bell.png">
+      <div class="column">
+        <div class="text" [ngStyle]="!list.click ? {'font-weight':'bold'}:{}">{{list.notification}}</div>
+        <div class="date">{{list.date}}</div>
+      </div>
+    </div>
+    <div class="more" *ngIf="totalitems-currentPage*5>0" (click)="showMore()">More</div>
+  </div>
+  

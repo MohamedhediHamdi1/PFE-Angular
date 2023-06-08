@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+<router-outlet ></router-outlet>
+<div class="body">
+    <div  class="left">
+        <div class="div">
+            <h1>{{title1}}</h1>
+            <h3>{{desc1}}</h3>
+        </div>
+        <img src="/assets/B2B.jpg">
+    </div>
+    <div class="row">
+        <div  class="div">
+            <h1>{{title2}}</h1>
+            <h3>{{desc2}}</h3>
+        </div>
+        <img src="/assets/B2B.jpg">
+    </div>
+    <div  class="left">
+        <div class="div">
+            <h1>{{title3}}</h1>
+            <h3>{{desc3}}</h3>
+        </div>
+        <img src="/assets/B2B.jpg">
+    </div>
+    <div class="row">
+        <div class="div">
+            <h1>{{title4}}</h1>
+            <h3>{{desc4}}</h3>
+            <div id="scroll-to-top" (click)="scrollToTop()" class="join" [routerLink]="'join'">Join</div>
+        </div>
+        <img  src="/assets/B2B.jpg">
+        <div id="scroll-to-top" (click)="scrollToTop()" class="joinn" routerLink="join">Join</div>
+    </div>
+
+</div>
+<app-foooter></app-foooter>

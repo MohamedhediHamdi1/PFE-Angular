@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
+
+.body {
+    background-color: rgba(16, 23, 40, 255);
+    width: 100%;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+
+    .column {
+        width: 90%;
+    }
+
+    h2 {
+        margin: 20px 0px;
+        font-size: 24px;
+        color: white;
+    }
+
+    .h5 {
+        width: 600px;
+        font-size: 15px;
+        color: white;
+        margin: 0px;
+        font-family: 'Tajawal', sans-serif;
+    }
+
+    .Mandatoryfields {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-top: 25px;
+        margin-bottom: 10px;
+
+        .text {
+            font-size: 15px;
+            color: white;
+            margin: 0px;
+            font-family: 'Tajawal', sans-serif;
+        }
+    }
+
+    .divider {
+        height: 1px;
+        width: 100%;
+        margin-bottom: 50px;
+        color: white;
+        background-color: white;
+    }
+
+    .row,
+    .row2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 20%;
+        margin-top: 20px;
+    }
+
+    .row1 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        p {
+            font-size: 13px;
+            color: red;
+        }
+    }
+
+    .names {
+        font-size: 16px;
+        color: white;
+        font-family: 'Tajawal', sans-serif;
+    }
+
+    input {
+        background-color: transparent;
+        border: 1px solid white;
+        border-radius: 5px;
+        width: 35%;
+        height: 23px;
+        padding-left: 5px;
+        color: white;
+        font-size: 16px;
+        font-family: 'Tajawal', sans-serif;
+    }
+
+    input::placeholder {
+        color: white;
+        font-size: 14px;
+        font-family: 'Tajawal', sans-serif;
+    }
+
+    .row2 {
+        margin-right: 42%;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    img {
+        width: 60px;
+        height: 60px;
+        border-radius: 20%;
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+    }
+    .imgraduis{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+    }
+    .chooseImage {
+        opacity: 0;
+        position: absolute;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        z-index: -1;
+      }
+    img:hover {
+        transform: scale(1.1);
+    }
+
+    .row3 {
+        align-items: start;
+        margin-bottom: 80px;
+    }
+
+    .description {
+        width: 36%;
+        height: 150px;
+
+        .row4 {
+            width: 105%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            p {
+                margin: 0;
+                font-size: 12px;
+                color: white;
+            }
+        }
+    }
+
+    textarea {
+        width: 100%;
+        height: 150px;
+        border-radius: 10px;
+        padding-left: 5px;
+        padding-top: 5px;
+        font-family: 'Tajawal', sans-serif;
+        resize: none;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    textarea::placeholder {
+        color: black;
+        font-family: 'Tajawal', sans-serif;
+        font-size: 14px;
+    }
+
+    .country {
+        width: 36%;
+    }
+
+    .input {
+        display: block;
+        width: 100%;
+        height: 26px;
+        border-radius: 5px;
+        background-color: transparent;
+        border: 1px solid white;
+        color: white;
+        font-size: 14px;
+        font-family: 'Tajawal', sans-serif;
+    }
+
+    .input:focus {
+        outline: none;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    option {
+        background-color: rgba(16, 23, 40, 255);
+    }
+
+    .button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 120px;
+        height: 35px;
+        margin: 40px 0px 40px 70%;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: 'Tajawal', sans-serif;
+        padding: 2px 9px;
+        border-radius: 5px;
+        color: white;
+        background-color: rgb(52, 1, 134);
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .button:hover {
+        transform: scale(1.1);
+    }
+
+
+}
+
+
+.submission_succussful{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    backdrop-filter: blur(2px);
+    img{
+        width: 100px;
+        height: 100px;
+    }
+    h2{
+        color: white;
+    }
+    p{
+        color: white;
+        margin:0;
+        font-size: 15px;
+    }
+    .button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 30px;
+        margin-top: 25px;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: 'Tajawal', sans-serif;
+        padding: 2px 9px;
+        border-radius: 5px;
+        color: white;
+        background-color: rgb(52, 1, 134);
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .button:hover {
+        transform: scale(1.1);
+    }
+}

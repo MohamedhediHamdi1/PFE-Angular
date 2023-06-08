@@ -1,0 +1,48 @@
+
+<div class="body" *ngIf="!isLoading">
+    <app-category class="category"></app-category>
+    
+    <div class="list" (click)="goToService(list.privateId)"  *ngFor="let list of service_list | paginate: { itemsPerPage: 8, currentPage: currentPage, totalItems: totalServices }; let i =index; let last = last"  >
+        
+        <div class="left">
+            <div class="column">
+                <h1>{{list.name}}</h1>
+                <div class="company">
+                    <img src="{{imageUrl+list.logoCompany}}" class="logo">
+                    <div class="companyName">{{list.nameCompany}}</div>
+                </div>
+            </div>
+            
+            <p>
+               {{list.description}}
+            </p>
+                <div class="row">
+                    <div class="review">
+                        <div class="rating">
+                            <span class="star" *ngFor="let star of getStars(list.review)">{{ star }}</span>
+                          </div>
+                    </div>
+                    <div class="price">{{list.price}}$</div>
+                </div>
+        </div>
+        <img *ngIf="i%2==0" class="right" src="{{imageUrl+list.image}}">
+        <img *ngIf="i%2==1" class="right2" src="{{imageUrl+list.image}}">
+        <div class="row1">
+            <div class="review1">
+                <div class="rating1">
+                    <span class="star1" *ngFor="let star of getStars(list.review)">{{ star }}</span>
+                  </div>
+            </div>
+            <div class="price1">{{list.price}}$</div>
+        </div>
+    </div>
+    <div *ngIf="service_list.length==0" class="no_result">
+        <img  src="assets/no-results.png">
+        <p>No Results Found For Your Search</p>
+    </div>
+    <pagination-controls (pageChange)="onPageChange($event)" [currentPage]="currentPage" [totalItems]="totalServices" [itemsPerPage]="8"></pagination-controls>
+
+    </div>
+    
+
+    <app-spinkit *ngIf="isLoading"></app-spinkit>

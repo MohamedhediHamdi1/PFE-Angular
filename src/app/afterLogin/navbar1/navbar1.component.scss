@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: rgba(16, 23, 40, 255);
+
+  .logo {
+    height: 30px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .logo:hover {
+    transform: scale(1.1);
+  }
+
+  .search {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 10px;
+    align-items: center;
+    width: 25%;
+    height: 30px;
+    border-radius: 20px;
+    background-color: white;
+
+    input {
+      width: 90%;
+      font-size: 16px;
+      font-weight: bold;
+      color: black;
+      border: 0px solid;
+    }
+
+    input::placeholder {
+      color: black;
+      font-size: 17px;
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    img {
+      width: 20px;
+      cursor: pointer;
+    }
+  }
+
+  .right {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+    gap: 15px;
+
+    .messages {
+      position: relative;
+    }
+    .more{
+      margin-left: 110px;
+      margin-bottom: 10px;
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      transition: transform 0.3s ease-in-out;
+      cursor: pointer;
+  }
+  .more:hover{
+      color: #9340ff;
+  }
+
+    .messageList {
+      position: absolute;
+      top: 20px;
+      right: 0;
+      width: 250px;
+      height: 400px;
+      background-color: #071025;
+      box-shadow: 0px 0px 10px black;
+      border-radius: 10px;
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 10px;
+      overflow-x: auto;
+      white-space: nowrap;
+
+      .h3 {
+        color: white;
+        font-size: 18px;
+        margin: 0px;
+        font-family: 'Tajawal', sans-serif;
+        font-weight: bold;
+      }
+
+      .line {
+        width: 100%;
+        height: 1px;
+        background-color: gray;
+      }
+
+      .list_channels {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 50px;
+        padding: 5px 5px;
+        border-bottom: 1px solid gray;
+        cursor: pointer;
+        border-radius: 5px;
+
+        img {
+          width: 30px;
+          height: 30px;
+        }
+
+        .row4 {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 15px;
+        }
+
+        .name {
+          color: white;
+          font-size: 13px;
+          font-family: 'Golos', sans-serif;
+        }
+
+        .channel_message {
+          max-lines: 1;
+          color: rgb(211, 205, 205);
+          font-size: 14px;
+          font-family: 'Tajawal', sans-serif;
+        }
+
+        .date {
+          color: white;
+          font-size: 10px;
+          font-family: 'Golos', sans-serif;
+        }
+      }
+
+      .list_channels:hover {
+        background-color: #040a16;
+      }
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+    .image-container {
+      position: relative;
+      display: inline-block;
+    }
+    .notifications{
+      position: relative;
+      display: inline-block;
+    }
+    
+    .red-point {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: red;
+    }
+
+    img:hover {
+      transform: scale(1.2);
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    h2:hover {
+      transform: scale(1.1);
+    }
+
+    h3 {
+      font-size: 16px;
+      padding-top: 3px;
+      font-family: 'Golos', sans-serif;
+      color: rgb(10, 10, 216);
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    h3:hover {
+      transform: scale(1.1);
+    }
+
+    .img2 {
+      width: 30px;
+      height: 30px;
+      padding-left: 10px;
+      cursor: pointer;
+    }
+
+  }
+}
+
+.menu-icon {
+  display: none;
+}
+
+.drawer {
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .navbar {
+    .right {
+      display: none;
+    }
+
+    .logo {
+      height: 25px;
+    }
+
+    .menu-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 15px;
+      color: #fff;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    .search {
+      display: none;
+    }
+
+  }
+
+
+  .drawer {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    padding-top: 30px;
+    padding-right: 10px;
+    background-color: rgba(16, 23, 40, 255);
+    padding-left: 20px;
+    z-index: 999;
+
+    .right1 {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .user {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
+        cursor: pointer;
+
+        .img3 {
+          width: 30px;
+          height: 30px;
+        }
+
+        p {
+          font-size: 20px;
+          font-weight: bold;
+          color: white;
+          padding-left: 15px;
+          padding-top: 12px;
+        }
+      }
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+
+      .search2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: -10px;
+        padding: 0px 10px;
+        align-items: center;
+        width: 90%;
+        height: 30px;
+        border-radius: 20px;
+        background-color: white;
+
+        input {
+          width: 90%;
+          font-size: 16px;
+          font-weight: bold;
+          color: black;
+          border: 0px solid;
+        }
+
+        input::placeholder {
+          color: black;
+          font-size: 17px;
+        }
+
+        input:focus {
+          outline: none;
+        }
+
+        img {
+          width: 25px;
+          cursor: pointer;
+        }
+      }
+
+      .message {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: -10px;
+        margin-bottom: -10px;
+        cursor: pointer;
+
+        p {
+          font-size: 18px;
+          font-weight: bold;
+          color: white;
+          padding-left: 10px;
+        }
+      }
+
+      h2 {
+        color: white;
+      }
+    }
+
+
+  }
+
+  .left_drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 46%;
+    height: 100%;
+    backdrop-filter: blur(3px);
+  }
+}

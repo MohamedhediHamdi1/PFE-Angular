@@ -1,0 +1,111 @@
+<div class="body">
+    <div class="column">
+        <h1>Add Service</h1>
+        <div class="row">
+            <div class="column1">
+                <div class="title">Service title</div>
+                <div class="subtitle">As a service provider, crafting a title that includes relevant keywords is crucial
+                    for optimizing your searchability among potential buyers.</div>
+            </div>
+            <div class="column2">
+                <input type="text" [(ngModel)]="title" placeholder="Title" name="title" [ngStyle]="(title.length<10 || title.length>50) && title.length>0 ? {'border':'1px solid red'}:{}">
+                <div class="row2">10/{{title.length}}/50</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column1">
+                <div class="title">Image</div>
+                <div class="subtitle">To make your service more visually appealing and memorable, we recommend uploading
+                    an image that accurately represents it. This can also help your service stand out and attract
+                    potential customers.</div>
+                <div class="subtitle">Max size 2 Mb</div>
+            </div>
+            <div class="column2">
+                <img (click)="fileInput.click()" src="{{imageurl}}"
+                    [ngStyle]="imageurl=='assets/add.png' ? {'width':'100px','height':'100px','border':'0px solid transparent'}:{}">
+                <input class="chooseImage" type="file" accept="image/*" #fileInput (change)="onFileSelected($event)">
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="column1">
+                <div class="title">Video(Optional)</div>
+                <div class="subtitle">To make your service more visually appealing and memorable, we recommend uploading
+                    an image that accurately represents it. This can also help your service stand out and attract
+                    potential customers.</div>
+                <div class="subtitle">Max size 2 Mb</div>
+            </div>
+            <div class="column2">
+                <img *ngIf="!videoUrl" (click)="fileInput1.click()" src="assets/add.png"
+                    [ngStyle]="{'width':'100px','height':'100px','border':'0px solid transparent'}">
+                    <video [ngStyle]="!videoUrl ?{'display':'none'}:{}" #videoPlayer controls class="videoPlayer">
+                        <source [src]="videoUrl" type="video/mp4">
+                      </video>
+                <input class="chooseImage" type="file" accept="video/mp4,video/webm,video/ogg" #fileInput1 (change)="onVideoSelected($event)">
+            </div>
+        </div>
+
+        
+        <div class="row">
+            <div class="column1">
+                <div class="title">Price</div>
+                <div class="subtitle">Prices are between $10 and $10000</div>
+            </div>
+            <div class="column2">
+                <input type="number" [(ngModel)]="price" placeholder="Price" [ngStyle]="checkPrice() ? {'border':'1px solid red'}:{}">
+                <div class="row2">$10/${{price}}/$10000</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column1">
+                <div class="title">Category</div>
+                <div class="subtitle">Choosing the right category is crucial for the success of your Service because it determines the visibility of your services to potential clients.</div>
+            </div>
+            <div class="column2">
+                <select class="input" name="country" id="country" required name="country" [(ngModel)]="category" [ngStyle]="checkError && category =='Category' ? {'border':'1px solid red'}:{} ">
+                    <option value="Category">Category</option>
+                    <option value="Category1">Category1</option>
+                    <option value="Category2">Category2</option>
+                    <option value="Category2">Category3</option>
+                    <option value="Category2">Category4</option>
+                    <option value="Category2">Category5</option>
+                    <option value="Category2">Category6</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column1">
+                <div class="title">Description</div>
+                <div class="subtitle">Your description should be a short, snappy summary of your service that highlights its unique selling points.</div>
+            </div>
+            <div class="column2">
+                <textarea minlength="100" maxlength="150" [(ngModel)]="description" [ngStyle]="(description.length>150 || description.length<100) && description!='' ? {'border':'2px solid red'}:{} "></textarea>
+                <div class="row2">100/{{description.length}}/150</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column1">
+                <div class="title">Brief Description</div>
+                <div class="subtitle">Your brief description should provide a detailed overview of your offering, highlighting its key features, benefits, and functionality</div>
+            </div>
+            <div class="column2">
+                <textarea class="briefDescription" minlength="300" maxlength="500" [(ngModel)]="briefDescription" [ngStyle]="(briefDescription.length>500 || briefDescription.length<300) && briefDescription!='' ? {'border':'2px solid red'}:{} "></textarea>
+                <div class="row2">300/{{briefDescription.length}}/500</div>
+            </div>
+        </div>
+        <div class="button" ><button (click)="onSubmit()">Submit</button></div>
+    </div>
+</div>
+
+
+
+<div *ngIf="submission_succussful" class="submission_succussful">
+    <img src="assets/start_selling_navbar/check.png" >
+    <h2>Submission Successful!</h2>
+    <p>Your Service has been created successfully.</p>
+    <div class="button" (click)="onDone()" >OK</div>
+</div>
+
+
+<app-spinkit *ngIf="isLoading"></app-spinkit>

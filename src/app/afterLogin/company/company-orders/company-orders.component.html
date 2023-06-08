@@ -1,0 +1,105 @@
+<div class="body">
+    <div class="orders">
+        <h1>Manage Orders</h1>
+        <div class="row">
+            <div class="choose" [ngStyle]="manage_orders=='All orders' ? {'color':'white' , 'font-size':'17px'} : {}"
+                (click)="onChange('All orders')">All orders</div>
+            <div class="choose" [ngStyle]="manage_orders=='New' ? {'color':'white' , 'font-size':'17px'} : {}"
+                (click)="onChange('New')">New</div>
+            <div class="choose" [ngStyle]="manage_orders=='Accepted' ? {'color':'white' , 'font-size':'17px'} : {}"
+                (click)="onChange('Accepted')">Accepted</div>
+            <div class="choose" [ngStyle]="manage_orders=='Cancelled' ? {'color':'white' , 'font-size':'17px'} : {}"
+                (click)="onChange('Cancelled')">Cancelled</div>
+            <div class="choose" [ngStyle]="manage_orders=='Delivered' ? {'color':'white' , 'font-size':'17px'} : {}"
+                (click)="onChange('Delivered')">Delivered</div>
+        </div>
+        <div class="container">
+            <div class="container1">
+                <div class="text1">{{manage_orders}}</div>
+                <div class="text2" *ngIf="manage_orders != 'All orders'">Orders</div>
+            </div>
+            <div class=" column column1">
+                <div class="row1 row2">
+                    <div class="buyer">Buyer</div>
+                    <div class="service">Service</div>
+                    <div class="start_date">Satrt Date</div>
+                    <div class="end_date">End Date</div>
+                    <div class="price">Price</div>
+                    <div class="status">Status</div>
+                </div>
+            </div>
+            <div (click)="getOrder(list.orderId!)" class="column" *ngFor="let list of order_list">
+                <div class="row1">
+                    <div class="buyer">{{list.buyer}}</div>
+                    <div class="service">{{list.serviceName}}</div>
+                    <div class="start_date">{{list.startDate}}</div>
+                    <div class="end_date">{{list.endDate}}</div>
+                    <div class="price">{{list.price}}</div>
+                    <div class="status" [ngClass]="{
+                        'new1': list.status === 'New' || list.status === 'Delivered',
+                        'accepted': list.status === 'Accepted' ,
+                        'cancelled': list.status === 'Cancelled'
+                      }">{{list.status}}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div *ngIf="totalItems-curentPage*10>0" (click)="showmore()" class="showMore">Show More</div>
+</div>
+
+<div *ngIf="openOreder" class="order_detaile">
+    <div class="container_detaile">
+        <div class="row1">
+            <div class="row">
+                <h2>Order </h2>
+                <div class="orderId">#{{orderList?.orderId}}</div>
+            </div>
+            <h2>${{orderList?.price}}</h2>
+        </div>
+        <div class="row">
+            <div class="text1">Status : </div>
+            <div class="status" [ngClass]="{
+                'new1': orderList?.status === 'New',
+                'accepted': orderList?.status === 'Accepted' ,
+                'cancelled': orderList?.status === 'Cancelled'
+              }">{{orderList?.status}}</div>
+        </div>
+        <span></span>
+        <div class="row">
+            <div class="text1">Service Name : </div>
+            <div class="text2">{{orderList?.serviceName}}</div>
+        </div>
+        <div class="row">
+            <div class="text1">Buyer : </div>
+            <div class="text2">{{orderList?.buyer}}</div>
+        </div>
+        <div class="row">
+            <div class="text1">Buy Date : </div>
+            <div class="text2">{{orderList?.buyDate}}</div>
+        </div>
+        <div class="row">
+            <div class="text1">Start Date : </div>
+            <div class="text2">{{orderList?.startDate}}</div>
+        </div>
+        <div class="row">
+            <div class="text1">End Date : </div>
+            <div class="text2">{{orderList?.endDate}} </div>
+        </div>
+        <div class="review">
+            <div class="rating">
+                <span class="star" *ngFor="let star of getStars(orderList?.review!)">{{ star }}</span>
+            </div>
+            <div *ngIf="orderList?.review!>5" class="notyet">( Not Yet )</div>
+        </div>
+        <div class="row2">
+            <button class="accept" (click)="updateOrder('Accepted')" *ngIf="orderList?.status?.includes('New')"
+                title="When you do not accept this order within the next 24 hours, it will be automatically cancelled.">Accept</button>
+            <button class="cancel" (click)="updateOrder('Cancelled')" *ngIf="orderList?.status?.includes('New')"
+                title="When you click 'cancel', the money will be refunded back to your client.">Cancel</button>
+            <button class="done" (click)="updateOrder('Delivered')"
+                *ngIf="orderList?.status?.includes('Accepted')">Deliver</button>
+            <button class="close" (click)="close()">Close</button>
+        </div>
+    </div>
+</div>

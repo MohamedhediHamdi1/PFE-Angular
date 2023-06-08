@@ -1,0 +1,24 @@
+<div class="html">
+  <div class="body">
+    <div class="left1">
+      <div class="left">
+        <div class="container" (click)="onChanged(1,'/editprofile')" [class.selected]="selectedContainer === 1">
+          <p>Edit Profile</p>
+        </div>
+        <div class="container" (click)="onChanged(2,'/security')" [class.selected]="selectedContainer === 2">
+          <p>Security</p>
+        </div>
+        <div class="container" (click)="onChanged(3,'/notification')" [class.selected]="selectedContainer === 3">
+          <p>Notificatons</p>
+        </div>
+        <div class="container" (click)="onChanged(4,'/billing')" [class.selected]="selectedContainer === 4">
+          <p>Billing</p>
+        </div>
+      </div>
+      <div class="logout" (click)="logOut()">Log Out <img src="assets/log-out.png"></div>
+    </div>
+    <div class="right">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
+
+
+.body{
+    display: flex;
+  flex-direction: column;
+  background-color: rgba(16, 23, 40, 255);
+  padding: 100px;
+  .row{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+  }
+  .left{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding-right: 50px;
+  }
+  .right{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding-left: 50px;
+    gap: 10px;
+    .rows{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2px;
+        .title{
+            font-size: 16px;
+            color: white;
+            font-family: 'Roboto',sans-serif;
+            width: 95px;
+        }
+        .details{
+            font-size: 16px;
+            color: white;
+            font-family: 'Roboto',sans-serif;
+        }
+    }
+  }
+  .row1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    img{
+        height: 40px;
+        max-width: 80px;
+    }
+    .column1{
+        display: flex;
+        flex-direction: column;
+        .companyName{
+            font-size: 20px;
+            font-weight: bold;
+            font-family: 'Roboto',sans-serif;
+            color: white;
+        }
+        .country{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 8px;
+            .logo{
+                height: 20px;
+                max-width: 40px;
+            }
+            .name{
+                font-size: 15px;
+                color: white;
+                font-family: 'Hahmlet',sans-serif ;
+            }
+        }
+    }
+    
+  }
+  .button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Tajawal', sans-serif;
+    margin-left: 10px;
+    margin-top: 50px;
+    padding: 2px 9px;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(52, 1, 134);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+.button:hover{
+    transform: scale(1.1);
+}
+app-reviews{
+  padding-top: -40px;
+}
+  .description{
+    font-size: 18px;
+    color: white;
+    font-family: 'Tajawal',sans-serif;
+    margin-top: 50px;
+  }
+
+  .category{
+    font-size: 18;
+    color: white;
+    font-family: 'Hahmlet',sans-serif ;
+  }
+  h1{
+    margin-bottom: 0px;
+    margin-top: 60px;
+    color: white;
+    font-size: 40px;
+  }
+  .list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 350px;
+    width: 90%;
+    margin-top: 50px;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    .left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 40%;
+      height: 90%;
+      padding-bottom: 20px;
+
+      h1 {
+        color: #9340ff;
+        font-size: 40px;
+        font-weight: bold;
+      }
+
+      p {
+        font-size: 18px;
+        height: 60%;
+        color: white;
+      }
+
+
+      .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .review {
+          .rating {
+            font-size: 2rem;
+            color: #f1c40f;
+            /* yellow */
+          }
+
+          .star {
+            display: inline-block;
+            transition: color 0.2s;
+          }
+
+          .star:hover,
+          .star:hover~.star {
+            color: #f39c12;
+            /* orange */
+          }
+
+        }
+
+        .price {
+          color: white;
+          font-size: 25px;
+          font-weight: bold;
+        }
+      }
+
+    }
+
+    &:nth-child(odd) {
+      flex-direction: row-reverse;
+    }
+
+    .right0 {
+      width: 40%;
+      margin: 20px;
+      border-radius: 30px;
+      box-shadow: 50px -50px 100px rgba(31, 65, 187, 255);
+    }
+
+    .right2 {
+      width: 40%;
+      margin: 20px;
+      border-radius: 30px;
+      box-shadow: -50px -50px 100px rgba(31, 65, 187, 255);
+    }
+
+    .row1 {
+      display: none;
+    }
+
+  }
+  .list:hover {
+    transform: scale(1.03);
+  }
+}

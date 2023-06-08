@@ -1,0 +1,131 @@
+<div class="body">
+    <div class="column">
+        <h2>Company Info</h2>
+        <div class="h5">Please provide a brief overview of your company. This information will be displayed on your public profile so that potential buyers can learn more about your organization.</div>
+        <div class="Mandatoryfields">
+            <div class="text">* Mandatory fields</div>
+        </div>
+        <div class="divider"></div>
+        <div class="row">
+            <div class="row1">
+                <div class="names">Company Full Name</div>
+                <p>*</p>
+            </div>
+            <input type="text" placeholder="Full Name" [(ngModel)]="fullName" [ngStyle]="checkError && fullName.length<1 ? {'border': '1px solid red'}:{}">
+        </div>
+        <div class="row">
+            <div class="row1">
+                <div class="names">Display Name</div>
+                <p>*</p>
+            </div>
+            <input type="text" placeholder="Type your company display name" [(ngModel)]="displayName" [ngStyle]=" checkError && displayName.length<1 ? {'border': '1px solid red'}:{}">
+        </div>
+        <div class="row2">
+            <div class="row1">
+                <div class="names">Company Logo</div>
+                <p>*</p>
+            </div>
+            <div class="imgraduis" [ngStyle]="isHighlighted ? {} : {'border':'2px solid white'}"><img (click)="fileInput.click()" src="{{imageUrl}}" alt=""></div>
+            <input class="chooseImage" type="file" accept="image/*" #fileInput (change)="onFileSelected($event)">
+        </div>
+        <div class="row">
+            <div class="row1">
+                <div class="names">Website</div>
+                <p>*</p>
+            </div>
+            <input type="text" placeholder="Company website" [(ngModel)]="website" [ngStyle]=" checkError && website.length<1 ? {'border': '1px solid red'}:{}">
+        </div>
+        <div class="row">
+            <div class="row1">
+                <div class="names">Category</div>
+                <p>*</p>
+            </div>
+            <div class="country">
+                <select  class="input" name="category" id="category"  required [(ngModel)]="category" [ngStyle]=" checkError && country.includes('Select a Category') ? {'border': '1px solid red'}:{}" >
+                <option value="Select a Category" >Select a country</option>
+                <option  value="Category1">Category1</option>
+                <option value="Category2">Category2</option>
+                <option value="Category3">Category3</option>
+                <option value="Category4">Category4</option>
+              </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="row1">
+                <div class="names">Country</div>
+                <p>*</p>
+            </div>
+            <div class="country">
+                <select  class="input" name="country" id="country"  required name="country" [(ngModel)]="country" [ngStyle]=" checkError && country.includes('Select a country') ? {'border': '1px solid red'}:{}" >
+                <option value="Select a country" >Select a country</option>
+                <option  value="Tunisia" >Tunisia</option>
+                <option value="Canada">Canada</option>
+              </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="row1">
+                <div class="names">State</div>
+                <p>*</p>
+            </div>
+            <input type="text" placeholder="State" [(ngModel)]="state"  [ngStyle]=" checkError && state.length<1 ? {'border': '1px solid red'}:{}">
+        </div>
+        <div class="row">
+            <div class="row1">
+                <div class="names">City</div>
+                <p>*</p>
+            </div>
+            <input type="text" placeholder="City" [(ngModel)]="city" [ngStyle]=" checkError && city.length<1 ? {'border': '1px solid red'}:{}">
+        </div>
+        <div class="row">
+            <div class="row1">
+                <div class="names">Adress</div>
+                <p>*</p>
+            </div>
+            <input type="text" placeholder="Adress" [(ngModel)]="adress" [ngStyle]=" checkError && adress.length<1 ? {'border': '1px solid red'}:{}">
+        </div>
+        <div class="row">
+            <div class="row1">
+                <div class="names">Postal Code</div>
+                <p>*</p>
+            </div>
+            <input type="text" placeholder="Postal Code" [(ngModel)]="postalCode" [ngStyle]=" checkError && postalCode.length<1 ? {'border': '1px solid red'}:{}">
+        </div>
+        <div class="row">
+            <div class="row1">
+                <div class="names">Corporation Id</div>
+                <p>*</p>
+            </div>
+            <input type="number" placeholder="4-digit Code" [(ngModel)]="corporation" [ngStyle]=" checkError && corporation.toString().length!=4 ? {'border': '1px solid red'}:{}">
+        </div>
+        <div class="row">
+            <div class="row1">
+                <div class="names">Business Number</div>
+                <p>*</p>
+            </div>
+            <input type="number" placeholder="9-digit Code" [(ngModel)]="businessNumber" [ngStyle]=" checkError && businessNumber.toString().length!=9 ? {'border': '1px solid red'}:{}">
+        </div>
+        <div class="row row3">
+            <div class="row1">
+                <div class="names">Description</div>
+                <p>*</p>
+            </div>
+            <div class="description">
+                <textarea minlength="200" maxlength="600"  [(ngModel)]="description" [ngStyle]=" checkError && (description.length<200 || description.length>600) ? {'border': '2px solid red'}:{}" placeholder="Share a brief overview of your company work experience, notable projects, and area of expertise."></textarea>
+                <div class="row4">
+                    <p>min 200 characters</p>
+                    <p>{{description.length}}/600</p>
+                </div>
+            </div>
+        </div>
+        <div class="button" (click)="onContinue()">Continue</div>
+    </div>
+</div>
+<app-spinkit *ngIf="isLoading"></app-spinkit>
+
+<div *ngIf="submission_succussful" class="submission_succussful">
+    <img src="assets/start_selling_navbar/check.png" >
+    <h2>Submission Successful!</h2>
+    <p>Your submission has been sent to our team for review.</p>
+    <div class="button" (click)="onDone()" >OK</div>
+</div>

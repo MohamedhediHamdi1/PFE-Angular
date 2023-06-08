@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
+
+
+.body{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    h1{
+        margin: 10px 0px;
+        font-size: 18px;
+        color: white;
+    }
+    .row{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 90%;
+        img{
+            width: 60px;
+            height: 60px;
+            margin: 5px 0px;
+            cursor: pointer;
+        }
+       
+        .row1{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .button{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: auto;
+            height: 25px;
+            font-size: 14px;
+            font-weight: bold;
+            font-family: 'Tajawal', sans-serif;
+            margin-left: 10px;
+            padding: 2px 9px;
+            border-radius: 5px;
+            color: white;
+            background-color: rgb(52, 1, 134);
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+        .button1{
+            padding: 2px 17px;
+        }
+        .button:hover{
+            transform: scale(1.1);
+        }
+        p{
+            color: rgb(180, 176, 176);
+            margin: 0;
+            font-family: 'Tajawal', sans-serif;
+        }
+        input{
+            background-color: transparent;
+            border: 1px solid white;
+            border-radius: 5px;
+            width: 300px;
+            height: 23px;
+            padding-left: 5px;
+            color: white;
+        }
+        
+    }
+    .chooseImage {
+        opacity: 0;
+        position: absolute;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        z-index: -1;
+      }
+   
+}

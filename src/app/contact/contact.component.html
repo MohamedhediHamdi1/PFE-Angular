@@ -1,0 +1,37 @@
+<div class="all">
+    <div class="body">
+        <!-- contact.component.html -->
+    <h2>Contact Us</h2>
+    
+    <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+      <div class="column">
+        <input class="input" placeholder="Email" type="email" id="email" name="email" required minlength="5" maxlength="50" [(ngModel)]="contact.email" #email="ngModel">
+        <div *ngIf="email.invalid && (email.dirty || email.touched)">
+          <div class="error" *ngIf="email?.errors?.['required']">Email is required.</div>
+          <div class="error" *ngIf="email?.errors?.['email']">Invalid email format.</div>
+        </div>
+      </div>
+    
+      <div class="column">
+        <input class="input" placeholder="Subject" type="text" id="subject" name="subject" required minlength="5" maxlength="30" [(ngModel)]="contact.subject" #subject="ngModel">
+        <div *ngIf="subject.invalid && (subject.dirty || subject.touched)">
+          <div class="error" *ngIf="subject.errors?.['required']">Subject is required.</div>
+          <div class="error" *ngIf="subject.errors?.['minlength']">Subject must be at least 5 characters.</div>
+          <div class="error" *ngIf="subject.errors?.['maxlength']">Subject cannot exceed 30 characters.</div>
+        </div>
+      </div>
+    
+      <div class="column">
+        <textarea class="input3" placeholder="Details" id="details" name="details" required minlength="20" maxlength="300" [(ngModel)]="contact.details" #details="ngModel"></textarea>
+    
+        <div *ngIf="details.invalid && (details.dirty || details.touched)">
+          <div class="error" *ngIf="details.errors?.['required']">Details are required.</div>
+          <div class="error" *ngIf="details.errors?.['minlength']">Details must be at least 20 characters.</div>
+          <div class="error" *ngIf="details.errors?.['maxlength']">Details cannot exceed 300 characters.</div>
+        </div>
+      </div>
+    </form>
+    </div>
+    <ngx-recaptcha2 class="capatcha" (success)="handleSuccess()" siteKey="6LdAs_skAAAAAJxfTO3eJRZp42yR0qEb_Rs4RvXO"></ngx-recaptcha2>
+    <button (click)="onSubmit()" class="join" type="submit" [disabled]="contactForm.invalid && capatcha">Submit</button>
+</div>

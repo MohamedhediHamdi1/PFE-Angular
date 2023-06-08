@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
+
+.body {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    width: 250px;
+    height: 440px;
+    background-color: #071025;
+    box-shadow: 0px 0px 10px black;
+    border-radius: 10px;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+    overflow-x: auto;
+    .h3 {
+        color: white;
+        font-size: 18px;
+        margin: 0px;
+        font-family: 'Tajawal', sans-serif;
+        font-weight: bold;
+        margin: 10px 5px;
+      }
+    .line{
+        height: 1px;
+        background-color: gray;
+    }
+    .notif_list{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border-bottom: 1px solid gray;
+        padding: 5px 5px;
+        gap: 10px;
+        cursor: pointer;
+    }
+    .notif_list:hover{
+        background-color: #040a16;
+    }
+    img{
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: gray;
+        padding: 10px;
+    }
+    .column{
+        display: flex;
+        flex-direction: column;
+       
+        .text{
+            font-size: 14px;
+            font-family: 'Tajawal';
+            color: white;
+            white-space: normal;
+        }
+        .date{
+            color: gray;
+            font-size: 12px;
+            padding-top: 6px;
+        }
+    }
+    .more{
+        margin-left: 110px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: white;
+        font-size: 15px;
+        font-weight: bold;
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+    }
+    .more:hover{
+        color: #9340ff;
+    }
+    
+}

@@ -1,0 +1,83 @@
+<div  class="body">
+    <div class="reviews">
+        <h1>Reviews</h1>
+        <div class="review2">
+        <div  class="price">{{totalItems}} reviews for this service</div>
+            <div class="rating" >
+                <span class="star" *ngFor="let star of getStars(rate)">{{ star }}</span>
+            </div>
+        </div>
+        <div class="stars5">
+            <p>5 </p>
+            <p>Stars</p>
+            <app-percent-line class="line" [percent]="star5/totalItems*100"></app-percent-line>
+            <p>({{star5}})</p>
+        </div>
+        <div class="stars5">
+            <p>4 </p>
+            <p>Stars</p>
+            <app-percent-line class="line" [percent]="star4/totalItems*100"></app-percent-line>
+            <p>({{star4}})</p>
+        </div>
+        <div class="stars5">
+            <p>3 </p>
+            <p>Stars</p>
+            <app-percent-line class="line" [percent]="star3/totalItems*100"></app-percent-line>
+            <p>({{star3}})</p>
+        </div>
+        <div class="stars5">
+            <p>2 </p>
+            <p>Stars</p>
+            <app-percent-line class="line" [percent]="star2/totalItems*100"></app-percent-line>
+            <p>({{star2}})</p>
+        </div>
+        <div class="stars5">
+            <p>1 </p>
+            <p>Stars</p>
+            <app-percent-line class="line" [percent]="star1/totalItems*100"></app-percent-line>
+            <p>({{star1}})</p>
+        </div>
+        <div class="stars5">
+            <p>0 </p>
+            <p>Stars</p>
+            <app-percent-line class="line" [percent]="star0/totalItems*100"></app-percent-line>
+            <p>({{star0}})</p>
+        </div>
+        
+    </div>
+    <div *ngIf="reviewList.length>0" class="sortby">
+        <h5>Sort by</h5>
+        <h6 (click)="toggleMenu()">{{dropDown}}</h6>
+        <img (click)="toggleMenu()" src="assets/navbar/arrow-down.png">
+    </div>      
+    <div *ngIf="showMenu" class="dropMenu">
+        <div (click)="dropDownClick('Most Relevant')" class="drop1">Most Relevant</div>
+        <div (click)="dropDownClick('Most Recent')" class="drop1">Most Recent</div>
+    </div>
+      
+      
+    <div *ngFor="let list of reviewList" class="list_reviews">
+        <div class="row_1">
+            <img src="assets/user.png" >
+            <div class="column_1">
+                <h4>{{list.userName}}</h4>
+                <div class="row_12">
+                    <img src="assets/tunisia.png"  >
+                    <h3>Tunisia</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row_2">
+            <div class="review">
+                <div class="rating">
+                    <span class="star" *ngFor="let star of getStars(list.rate)">{{ star }}</span>
+                </div>
+            </div>
+            <div class="numberofreview">{{list.rate}}</div>
+            <div class="line_horizontal"></div>
+            <h5>{{list.date}} ago</h5>
+        </div>
+        <p>{{list.message}} </p>
+    </div>
+</div>
+<div (click)="see_More()" *ngIf="seeMore" class="seeMore">+ See More</div>

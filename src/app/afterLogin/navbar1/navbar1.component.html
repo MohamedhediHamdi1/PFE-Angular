@@ -1,0 +1,77 @@
+<div class="navbar">
+    <img class="logo" src="/assets/navbar/logo.jpg" alt="image" routerLink="/s">
+
+    <div class="search">
+        <input (keyup.enter)="getSearchServices()" placeholder="Search" type="text" [(ngModel)]="search">
+        <img (click)="getSearchServices()" src="/assets/navbar/search.png">
+    </div>
+    <div class="right">
+        <div class="image-container notifications">
+            <img src="/assets/bell.png" (click)="toggleNotifications()">
+            <div class="red-point" *ngIf="newNotifications"></div>
+            <app-notification-bar *ngIf="notification" (mouseleave)="notification=false"></app-notification-bar>
+        </div>
+        <div class="messages">
+            <div class="image-container">
+                <img src="/assets/email.png" (click)="toggleMessages()">
+                <div class="red-point" *ngIf="newMessages"></div>
+            </div>
+            <div class="messageList" *ngIf="messages" (mouseleave)="messages=false">
+                <div class="h3">Inbox</div>
+                <div class="line"></div>
+                <div class="list_channels" *ngFor="let list of channels ;let i=index"
+                    (click)="goToInbox(list.channelId!)" [ngStyle]="list.vue==false ? {'background-color':'#030a1d'}:{}">
+                    <div class="row4">
+                        <img src="{{image2}}">
+                        <div class="column3">
+                            <div class="name" *ngIf="list.senderId==userId" [ngStyle]="list.vue==false ? {'font-size':'16px','font-weight':'bold'}:{}">{{list.senderName}}</div>
+                            <div class="name" *ngIf="list.senderId !=userId" [ngStyle]="list.vue==false ? {'font-size':'16px','font-weight':'bold'}:{}">{{list.recieverName}}</div>
+                            <div class="channel_message"
+                                [ngStyle]="list.vue==false ? {'font-weight':'bold','font-size':'16px','color':'white'}:{}">
+                                {{ list.lastMessage | slice:0:25 }}{{ list.lastMessage!.length > 25 ? '...' : '' }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="date">{{list.lastMessageDate}}</div>
+                </div>
+                <div class="more" *ngIf="totalItems-currentPage*10>0" (click)="showMore()">More</div>
+            </div>
+        </div>
+        <h2 routerLink="orders">Orders</h2>
+        <h3 (click)="navigateToselling()">Switching to selling</h3>
+        <img routerLink='profile' class="img2" src="{{imageId}}">
+
+    </div>
+    <img class="menu-icon" src="/assets/navbar/menu.png" (click)="toggledrawer()">
+</div>
+<div class="drawer" *ngIf="drawer">
+
+    <div class="right1">
+        <div class="user">
+            <img class="img3" src="/assets/user.png">
+            <p>MH Hamdi</p>
+        </div>
+        <div class="search2">
+            <input (keyup.enter)="getSearchServices()" (keyup.enter)="toggledrawer1()" placeholder="Search" type="text"
+                [(ngModel)]="search">
+            <img (click)="getSearchServices()" (click)="toggledrawer1()" src="/assets/navbar/search.png">
+        </div>
+        <div class="message">
+            <img src="/assets/email.png">
+            <p>Messages</p>
+        </div>
+        <div class="message">
+            <img src="/assets/bell.png">
+            <p>Notifications</p>
+        </div>
+        <div class="message">
+            <img src="/assets/orders.png">
+            <p>Orders</p>
+        </div>
+        <div class="message">
+            <img src="/assets/switch.png">
+            <p>Switching to selling</p>
+        </div>
+    </div>
+</div>
+<div class="left_drawer" *ngIf="drawer" (click)="toggledrawer1()"></div>

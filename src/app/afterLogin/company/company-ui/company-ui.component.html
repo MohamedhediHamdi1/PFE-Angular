@@ -1,0 +1,109 @@
+<div class="body">
+    <div class="dashboard">
+        <div class="dashboard1">
+            <div class="row_dash">
+                <img class="company_logo" src="{{imageUrl}}" >
+                <h4>{{fullName}}</h4>
+            </div>
+            <div class="review">
+                <div class="rating">
+                    <span class="star" *ngFor="let star of getStars(4)">{{ star }}</span>
+                </div>
+                <h4>(9)</h4>
+            </div>
+            <div class="row_dash" routerLink="inbox">
+                <img src="/assets/email.png">
+                <p>Messages</p>
+            </div>
+            <div class="row_dash">
+                <img src="/assets/bell.png">
+                <p>Notifications</p>
+            </div>
+            <div class="row_dash">
+                <img src="/assets/credit-card.png">
+                <p>Payment</p>
+            </div>
+            <div class="row_dash">
+                <img src="/assets/settings.png">
+                <p>Settings</p>
+            </div>
+        </div>
+        <div class="dashboard2">
+            <div class="row_dash2">
+                <div class="text1">Active Orders</div>
+                <div class="text1">{{analytics_list?.acceptedOrders}}</div>
+            </div>
+            <div class="row_dash2">
+                <div class="text1">Total Orders</div>
+                <div class="text1">{{analytics_list?.totalOrders}}</div>
+            </div>
+            <div class="row_dash2">
+                <div class="text1">Earnings</div>
+                <div class="text1">{{analytics_list?.totalEarnings}}$</div>
+            </div>
+            <div class="row_dash2">
+                <div class="text1">Earnings Last Mounth</div>
+                <div class="text1">{{analytics_list?.lastMounthEarnings}}$</div>
+            </div>
+            <div class="row_dash2">
+                <div class="text1">Services</div>
+                <div class="text1">{{service_list?.length}}/5</div>
+            </div>
+            <div class="row_dash2">
+                <div class="text1">Impressions</div>
+                <div class="text1">{{analytics_list?.servicesImpression}}</div>
+            </div>
+            <div class="row_dash2">
+                <div class="text1">Clicks</div>
+                <div class="text1">{{analytics_list?.servicesClicks}}</div>
+            </div>
+        </div>
+    </div>
+    <h1>Services</h1>
+    <div class="list" *ngFor="let list of service_list ; let i =index; let last = last">
+        
+        <div class="left">
+            <h1>{{list.name}}</h1>
+            <p>
+               {{list.description}}
+            </p>
+                <div class="row">
+                    <div class="review">
+                        <div class="rating">
+                            <span class="star" *ngFor="let star of getStars(list.review)">{{ star }}</span>
+                          </div>
+                    </div>
+                    <div class="price">{{list.price}}$</div>
+                </div>
+                <div class="admin">
+                    <div class="admin1">
+                        <img src="assets/editing.png" >
+                        
+                        <a class="adminText" routerLink="editservice/{{list.privateId}}">Edit</a>
+
+                    </div>
+                    <div (click)="hide()" class="admin1" title="hide">
+                        <img src="assets/hide.png" >
+                        <div class="adminText" (click)="Onhide(list.privateId,'hideunhide')">{{hideAndUnHide(list.visible)}}</div>
+                    </div>
+                    <div class="admin1">
+                        <img src="assets/bin.png" >
+                        <div class="adminText" (click)="Onhide(list.privateId,'delete')">Delete</div>
+                    </div>
+                </div>
+        </div>
+        <img *ngIf="i%2==0" class="right" src="assets/WebDevelopmentImage.jpg">
+        <img *ngIf="i%2==1" class="right2" src="assets/WebDevelopmentImage.jpg">
+        <div class="row1">
+            <div class="review1">
+                <div class="rating1">
+                    <span class="star1" *ngFor="let star of getStars(list.review)">{{ star }}</span>
+                  </div>
+            </div>
+            <div class="price1">{{list.price}}$</div>
+        </div>
+    </div>
+    <div class="center">
+        <div routerLink="addservice" *ngIf="service_list?.length!<5" class="button">Add Service</div>
+    </div>
+</div>

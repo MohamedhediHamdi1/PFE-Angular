@@ -1,0 +1,31 @@
+<div class="body">
+    <div class="row">
+        <div class="card" (click)="navigateTo('users')">
+            <div class="row1">
+                <img src="assets/admin/group.png">
+                <div class="column">
+                    <div class="title">Users</div>
+                    <div class="result">{{users}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="card" (click)="navigateTo('companies')">
+            <div class="row1">
+                <img src="assets/admin/business-and-trade.png">
+                <div class="column">
+                    <div class="title">Companies</div>
+                    <div class="result">{{companies}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="card" (click)="navigateTo('services')">
+            <div class="row1">
+                <img src="assets/admin/share.png">
+                <div class="column">
+                    <div class="title">Services</div>
+                    <div class="result">{{services}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

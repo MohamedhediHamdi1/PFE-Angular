@@ -1,0 +1,53 @@
+<div class="body">
+    <app-category></app-category>
+    <div class="list">
+        <div class="left">
+            <div class="column">
+                <h1>{{serviceList?.name}}</h1>
+                <div class="company" (click)="goToCompany()">
+                    <img src="{{imageUrl+serviceList?.logoCompany}}" class="logo">
+                    <div class="companyName">{{serviceList?.nameCompany}}</div>
+                </div>
+            </div>
+            <p>
+                {{serviceList?.description}}
+            </p>
+            <div class="row">
+                <div class="review">
+                    <div class="rating">
+                        <span class="star" *ngFor="let star of getStars(serviceList?.review)">{{ star }}</span>
+                    </div>
+                    <div class="nb_buy">({{serviceList?.nb_buy}})</div>
+                </div>
+                <div class="price">{{serviceList?.price}}$</div>
+            </div>
+        </div>
+        <img class="right" src="assets/WebDevelopmentImage.jpg">
+        <div class="row1">
+            <div class="review1">
+                <div class="rating1">
+                    <span class="star1" *ngFor="let star of getStars(serviceList?.review)">{{ star }}</span>
+                </div>
+            </div>
+            <div class="price1">{{serviceList?.price}}$</div>
+        </div>
+    </div>
+    <div class="details">
+
+        <video [ngStyle]="serviceList?.video?.length!<31 ?{'display':'none'}:{}" #videoPlayer controls class="videoPlayer"><source [src]="videoUrl" type="video/mp4"> </video>
+
+        <h1>About this service</h1>
+        <p>{{serviceList?.more_description}}</p>
+    </div>
+    <div class="row_button">
+        <button (click)="showMessage()">Message</button>
+        <button class="row_button1" (click)="goToPayment()">Buy</button>
+    </div>
+    
+    <app-reviews></app-reviews>
+    <app-recomondation></app-recomondation>
+</div>
+
+
+<app-send-message *ngIf="message" [constantValue]="serviceList?.companyId?.toString()!"></app-send-message>
+<app-spinkit *ngIf="isLoading"></app-spinkit>

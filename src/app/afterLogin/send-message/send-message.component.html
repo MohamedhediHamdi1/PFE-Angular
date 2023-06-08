@@ -1,0 +1,14 @@
+<div class="body">
+    <img src="assets/close.png" class="close" (click)="close()">
+    <div class="column">
+        <div class="user">
+            <img src="{{image}}" >
+            <div class="username">{{userName}}</div>
+        </div>
+        <div class="textarea">
+            <textarea maxlength="200" minlength="1" [(ngModel)]="message"></textarea>
+            <div class="counter">{{message.length}}/200</div>
+        </div>
+        <button (click)="sendMessages()">Send</button>
+    </div>
+</div>

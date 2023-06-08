@@ -1,0 +1,38 @@
+<div class="navbar">
+    <img class="logo" src="/assets/navbar/logo.jpg" alt="image" routerLink="">
+    <div class="right">
+        <div translate class="language">
+            <img src="/assets/navbar/world.png">
+            <h2 class="language-dropdown-button" (click)="toggleMenu()">{{translate}}</h2> 
+            <div class="language-dropdown-menu" *ngIf="showMenu">
+                <a (click)="onClick()">English</a>
+                <a (click)="onClick1()">French</a>
+              </div>  
+        </div> 
+        <p routerLink="/pricing">Pricing</p>
+        <p>Become a provider</p>  
+        <h1 routerLink="login">Sign In</h1>
+        <h1 class="join" routerLink="join">Join</h1>
+        
+    </div>
+    <img class="menu-icon" src="/assets/navbar/menu.png" (click)="toggledrawer()">
+</div>
+
+
+<div class="drawer" *ngIf="drawer" >
+    <div class="right1" >
+        <h1 routerLink="login">Sign In</h1>
+        <h1 class="join" routerLink="join">Join</h1>
+        <p>Become a provider</p> 
+        <p routerLinkActiveOptions="{ outlets: { home: ['pricing'] } }"        >Pricing</p>
+        <div  class="language" (click)="toggleMenu()">
+            <h2 class="language-dropdown-button"  >{{translate}}</h2> 
+            <img src="/assets/navbar/arrow-down.png">
+            <div class="language-dropdown-menu" *ngIf="showMenu">
+                <a (click)="onClick()">English</a>
+                <a (click)="onClick1()">French</a>
+              </div>   
+        </div>  
+    </div>
+</div>
+<div class="left_drawer" *ngIf="drawer" (click)="toggledrawer1()"></div>

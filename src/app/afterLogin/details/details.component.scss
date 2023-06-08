@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  background-color: rgba(16, 23, 40, 255);
+  margin: 0px;
+  padding-bottom: 20px;
+
+  app-category {
+    width: 100%;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 35vw;
+    width: 90%;
+    margin-top: 100px;
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 40%;
+      height: 90%;
+      padding-bottom: 20px;
+      .column{
+        display: flex;
+        flex-direction: column;
+        .company{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 8px;
+          cursor: pointer;
+          transition: transform 0.2s ease-in-out;
+          .logo{
+            height: 20px;
+            max-width: 40px;
+          }
+          .companyName{
+            font-size: 14px;
+            font-family: 'Tajawal',sans-serif;
+            color: rgb(207, 205, 205);
+          }
+        }
+        .company:hover{
+          transform: scale(1.05);
+        }
+      }
+      
+
+      h1 {
+        color: #9340ff;
+        font-size: 40px;
+        font-weight: bold;
+        margin-bottom: 0px;
+      }
+
+      p {
+        font-size: 20px;
+        height: 60%;
+        color: white;
+        font-family: 'Tajawal', sans-serif;
+        overflow-wrap: break-word;
+        white-space: normal;
+        width: 100%;
+      }
+
+
+      .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .review {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+
+          .rating {
+            font-size: 2rem;
+            color: #f1c40f;
+            /* yellow */
+          }
+
+          .star {
+            display: inline-block;
+            transition: color 0.2s;
+          }
+
+          .star:hover,
+          .star:hover~.star {
+            color: #f39c12;
+            /* orange */
+          }
+
+          .nb_buy {
+            padding-left: 8px;
+            padding-top: 5px;
+            font-size: 18px;
+            color: white;
+          }
+
+        }
+
+        .price {
+          color: white;
+          font-size: 25px;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .right {
+      width: 35%;
+      height: 70%;
+      margin: 20px;
+      border-radius: 30px;
+      box-shadow: 0px 0px 100px rgba(31, 65, 187, 255);
+    }
+  }
+
+  .row1 {
+    display: none;
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin-top: 80px;
+
+    h1 {
+      color: #9340ff;
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 18px;
+      height: 60%;
+      color: white;
+      line-height: 1.6;
+      font-family: 'Tajawal', sans-serif;
+      white-space: normal;
+      width: 90%;
+      overflow-wrap: break-word;
+      white-space: normal;
+    }
+
+    .videoPlayer{
+      width: 60%;
+      height: auto;
+    }
+  }
+
+  .row_button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 35%;
+    margin-top: 50px;
+
+    button {
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      background: linear-gradient(to left, #9340ff, #ff3c5f);
+      border-radius: 15px;
+      width: 120px;
+      height: 40px;
+      border: 5px white;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background: linear-gradient(to left, #ff3c5f, #9340ff);
+    }
+
+    .row_button1 {
+      background: linear-gradient(to left, #ff3c5f, #9340ff);
+    }
+
+    .row_button1:hover {
+      background: linear-gradient(to left, #9340ff, #ff3c5f);
+    }
+
+  }
+
+  app-reviews {
+    width: 90%;
+  }
+
+  app-recomondation {
+    width: 100%;
+  }
+
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 1000px) {
+  .body {
+
+    .list {
+      flex-direction: column;
+      justify-content: space-around;
+      height: auto;
+      width: 90%;
+      margin-top: 90px;
+
+      .left {
+        align-items: center;
+        width: 100%;
+        padding-bottom: 20px;
+
+        h1 {
+          font-size: 25px;
+        }
+
+        p {
+          font-size: 15px;
+          height: auto;
+        }
+
+
+        .row {
+          display: none;
+        }
+
+      }
+
+      &:nth-child(odd) {
+        flex-direction: column;
+
+      }
+
+      .right,
+      .right2 {
+        width: 80%;
+        height: auto;
+        margin: 20px;
+        margin-top: 50px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 100px rgba(31, 65, 187, 255);
+      }
+
+    }
+
+    .row1 {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      padding-top: 30px;
+
+      .review1 {
+        .rating1 {
+          font-size: 1.5rem;
+          color: #f1c40f;
+        }
+
+        .star1 {
+          display: inline-block;
+          transition: color 0.2s;
+        }
+
+        .star1:hover,
+        .star1:hover~.star {
+          color: #f39c12;
+        }
+
+      }
+
+      .price1 {
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+    .details{
+      margin-top: 50px;
+      h1{
+          font-size: 30px;
+      }
+      p {
+          font-size: 18px;
+          line-height:1.4;
+        }
+  }
+  .row_button {
+    justify-content: center;
+    width: 80%;
+    margin-top: 40px;
+    gap: 20px;
+    button {
+      border-radius: 10px;
+      width: 100px;
+      height: 40px;
+    }
+
+  }
+  }
+}

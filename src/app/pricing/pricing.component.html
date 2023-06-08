@@ -1,0 +1,98 @@
+<div class="body">
+    <h1>Try one of our paid plans - free for 30 days!</h1>
+    <div class="smile">Every year you have up to 16% off,that's 2 months free😍</div>
+    <div class="mon-ann">
+        <button (click)="selectMonthly()" [class.selected]="isMonthlySelected">Monthly</button>
+        <button (click)="selectAnnually()" [class.selected]="isAnnuallySelected">Annually</button>
+    </div>
+    <div class="row">
+        <div class="column1">
+            <div class="t1">Pro</div>
+            <div class="t2">Trading and investing without constraints, with more charts, intervals and indicators</div>
+            <div class="t3">
+                <h2>{{price1}}</h2>
+                <p>{{text}}</p>
+            </div>
+            <div *ngIf="isAnnuallySelected" class="t7">You save 24.00 $ per year</div>
+            <div class="t4">30 days free trial</div>
+            <div class="t5">Pro Key Benefits:</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+        </div>
+        <div class="column2">
+            <div class="t1">Pro+</div>
+            <div class="t2">Intraday technical analysis for day traders who want to step up a gear</div>
+            <div class="t3">
+                <h2>{{price2}}</h2>
+                <p>{{text}}</p>
+            </div>
+            <div *ngIf="isAnnuallySelected" class="t7">You save 60.00 $ per year</div>
+            <div class="t4">30 days free trial</div>
+            <div class="t5">All the benefits of the Pro, plus:</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+        </div>
+        <div class="column3">
+            <div class="t1">Premium</div>
+            <div class="t2">Highest precision and maximum data to seize all possible opportunities</div>
+            <div class="t3">
+                <h2>{{price3}}</h2>
+                <p> {{text}}</p>
+            </div>
+            <div *ngIf="isAnnuallySelected" class="t7">You save 120.00 $ per year</div>
+            <div class="t4">30 days free trial</div>
+            <div class="t5">The complete package, with:</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+            <div class="t6">- Test test test test test test test</div>
+        </div>
+    </div>
+    <div (click)="close()" class="already">Already member in jctq?</div>
+</div>
+
+
+
+
+
+
+
+<div *ngIf="show_verf"  class="body1">
+    <h1>JCTQ member Verfication</h1>
+    <input class="input" type="email" placeholder="Email" required [(ngModel)]="email" name="username" >
+    <div *ngIf="check_error && check_email" class="error1">{{emaail}}</div>
+    <span></span>
+    <input class="input" type="password" placeholder="Password" required [(ngModel)]="password" name="password">
+    <div *ngIf="check_error && checkpassword" class="error">{{pasword}}</div>
+    <ngx-recaptcha2 class="capatcha" (success)="handleSuccess()" siteKey="6LdAs_skAAAAAJxfTO3eJRZp42yR0qEb_Rs4RvXO"></ngx-recaptcha2>
+    
+    <button [disabled]="capatcha" class="join" (click)="onSubmit()">Verify</button>
+    <img (click)="close()" src="/assets/close.png" alt="" class="close">
+</div>
+
+<app-spinkit *ngIf="isLoading"></app-spinkit>

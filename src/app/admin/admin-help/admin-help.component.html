@@ -1,0 +1,41 @@
+<div class="body">
+
+    <div class="row">
+        <div class="button" (click)="type='users';getHelps()">Users</div>
+        <div class="button" (click)="type='guest';getHelps()">Guests</div>
+    </div>
+
+    <div class="container">
+        <div class="title">
+            <div class="name">Id</div>
+            <div class="name">Email</div>
+            <div class="name">Public Ip</div>
+            <div class="name">Subject</div>
+            <div class="name">Details</div>
+            <div class="name">Admin</div>
+        </div>
+        <div class="list" *ngFor="let list of helpList;let index=index" (click)="getOneHelp(index)">
+            <div class="title title1">
+                <div class="name">{{list.id}}</div>
+                <div class="name">{{list.email}}</div>
+                <div class="name">{{list.ipAddress}}</div>
+                <div class="name">{{list.subject}}</div>
+                <div class="name">{{list.detail}}</div>
+                <div class="name">{{list.admin}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="showReplied" class="blockuser">
+    <div class="countainer1">
+        <div class="close1" (click)="showReplied=false">close</div>
+        <div class="row">
+            <div class="id">Help Id : </div>
+            <div class="_id">{{help!.id}}</div>
+        </div>
+    
+        <button class="update" (click)="done()">Done</button>
+        
+    </div>
+</div>

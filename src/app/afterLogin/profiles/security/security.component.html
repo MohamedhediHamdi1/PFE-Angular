@@ -1,0 +1,22 @@
+<div class="body">
+    <h2>Set Password</h2>
+    <div class="row">
+        <p>Old Password</p>
+        <input type="text" name="oldPassword" [(ngModel)]="oldPassword">
+    </div>
+    <div class="row">
+        <p>New Password</p>
+        <input type="{{showPassword ? 'text' : 'password'}}" name="password" [(ngModel)]="password">
+        <h5 (click)="togglePasswordVisibility()">{{show_hide}}</h5>
+    </div>
+    <div class="row">
+        <p>Confirm Password</p>
+        <input type="{{showPassword ? 'text' : 'password'}}" name="cpassword" [(ngModel)]="cpassword">
+    </div>
+    <div class="row1">
+        <div class="text">8 characters or longer. Combine upper and lowercase letters and numbers and special characters.</div>
+    </div>
+    <div class="row1">
+        <div class="button" (click)="onChange()">Save Changes</div>
+    </div>
+</div>

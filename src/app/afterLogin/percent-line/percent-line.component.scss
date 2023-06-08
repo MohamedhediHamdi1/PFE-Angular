@@ -1,0 +1,23 @@
+.line-container {
+    height: 6px;
+    width: 100%;
+    position: relative;
+    
+  }
+  
+  .yellow-line {
+    height: 100%;
+    background-color: yellow;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom-left-radius:5px ;
+    border-top-left-radius:5px ;
+  }
+  
+  .grey-line {
+    height: 100%;
+    background-color: grey;
+    border-radius: 5px;
+  }
+  

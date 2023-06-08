@@ -1,0 +1,8 @@
+<div class="body">
+        <div class="title">Admin</div>
+        <input type="text" required placeholder="Admin" [(ngModel)]="admin">
+        <input type="password" required placeholder="Password" [(ngModel)]="password">
+        <div class="button" (click)="login()">Login</div>
+</div>
+
+<app-spinkit *ngIf="isLoading"></app-spinkit>

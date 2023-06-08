@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
+
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 100px;
+  background-color: rgba(16, 23, 40, 255);
+  .earnings{
+    width: 90%;
+    h1{
+        color: white;
+        font-size: 30px;
+    }
+    h2{
+        color: white;
+        font-size: 25px;
+        font-weight: bold;
+        margin-top: 50px;
+    }
+    .row{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 40px;
+        width: 100%;
+        .column{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 30%;
+            .title{
+                color: white;
+                font-size: 20px;
+                font-weight: bold;
+                font-family: 'Tajawal', sans-serif;
+                padding-left: 5px;
+            }
+            .card{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: 300px;
+                background-color: #071025;
+                margin-top: 20px;
+                border-radius: 10px;
+                border: 1px solid rgb(185, 177, 177);
+                padding: 20px;
+                .row1{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+                    margin-bottom: 30px;
+                }
+                .title1{
+                    color: white;
+                    font-size: 18px;
+                    font-family: 'Golos', sans-serif;
+                }
+                
+               
+                
+            }
+        }
+    }
+    .container {
+        width: 100%;
+        margin-top: 20px;
+        border-radius: 6px;
+        border: 1px solid rgb(185, 177, 177);
+        background-color: #071025;
+
+        
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 70px;
+            cursor: pointer;
+            border-bottom: 1px solid rgb(185, 177, 177);
+
+            .row1 {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                width: 100%;
+
+                .service,
+                .impression,
+                .clicks,
+                .orders,
+                .price {
+                    color: white;
+                    width: 14%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-family: 'Tajawal', sans-serif;
+                    font-size: 15px;
+                }
+
+                .service {
+                    width: 40%;
+                    .row3{
+                        display: flex;
+                        flex-direction: row;
+                        img{
+                            width: 20px;
+                            height: 20px;
+                            margin-left: 20px;
+                            margin-right: 10px;
+                        }
+                        p{
+                            margin: 0px;
+                        }
+                    }
+                    
+                }
+                .service1{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    
+                }
+
+                .impression {
+                    width: 10%;
+                }
+                .hide_button{
+                    width: 10%;
+                    button{
+                        width: 70%;
+                        height: 30px;
+                        border-radius: 5px;
+                        font-size: 14px;
+                        font-weight: bold;
+                        background-color: rgb(52, 1, 134);
+                        color: white;
+                        border: 0px solid transparent;
+                        cursor: pointer;
+                        transition: transform 0.3s ease-in-out;
+                    }
+                    button:hover{
+                        transform: scale(1.1);
+                    }
+                    
+                }
+                .hide{
+                    button{
+                        background-color: grey;
+                    }
+                    
+                }
+                .delete{
+                    button{
+                        background-color: red;
+                    }
+                }
+            }
+
+        }
+
+        
+
+        .column1 {
+            transition: none;
+            cursor: default;
+        }
+
+        .column1:hover {
+            transform: none;
+        }
+        
+    }
+  }
+}

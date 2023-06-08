@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
+
+.body {
+    width: 100%;
+    background-color: rgba(16, 23, 40, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    .orders {
+        width: 80%;
+
+        h1 {
+            color: white;
+            font-size: 35px;
+            margin: 0;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+            color: rgb(199, 193, 193);
+
+            .choose {
+                font-size: 15px;
+                font-weight: bold;
+                font-family: 'Tajawal', sans-serif;
+                cursor: pointer;
+                transition: transform 0.2s ease-in-out;
+            }
+
+            .choose:hover {
+                color: white;
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .container {
+        width: 100%;
+        min-height: 400px;
+        margin-top: 20px;
+        border-radius: 6px;
+        border: 1px solid rgb(185, 177, 177);
+        background-color: #071025;
+
+        .container1 {
+            height: 40px;
+            width: 100%;
+            border-bottom: 1px solid rgb(185, 177, 177);
+            display: flex;
+            align-items: center;
+
+            .text1,
+            .text2 {
+                color: white;
+                font-size: 18px;
+                font-weight: bold;
+                padding-left: 20px;
+                font-family: 'Tajawal', sans-serif;
+            }
+
+            .text2 {
+                padding-left: 5px;
+            }
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            border-bottom: 1px solid rgb(185, 177, 177);
+
+            .row1 {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                width: 100%;
+                transition: transform 0.3s ease-in-out;
+
+                .buyer,
+                .service,
+                .start_date,
+                .end_date,
+                .price,
+                .status {
+                    color: white;
+                    width: 14%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-family: 'Tajawal', sans-serif;
+                    font-size: 15px;
+                }
+
+                .buyer {
+                    width: 19%;
+                }
+
+                .service {
+                    width: 25%;
+                }
+                .new1{
+                    color: #f1c40f;
+                }
+                .accepted{
+                    color: green;
+                }
+                .cancelled{
+                    color: red;
+                }
+            }
+
+        }
+
+        .row1:hover {
+            transform: scale(1.03);
+        }
+
+        .row2:hover {
+            transform: none;
+        }
+
+        .column1 {
+            transition: none;
+            cursor: default;
+        }
+
+        .column1:hover {
+            transform: none;
+        }
+        
+    }
+
+    .showMore {
+        font-size: 18px;
+        color: #9340ff;
+        font-weight: bold;
+        margin: 10px 0px;
+        font-family: 'Tajawal', sans-serif;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .showMore:hover {
+        transform: scale(1.1);
+    }
+}
+
+.order_detaile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    backdrop-filter: blur(2px);
+    .container_detaile{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 700px;
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: 0px 0px 10px black;
+        background-color: #071025;
+        h2{
+            font-size: 24px;
+            color: white;
+            margin: 0px;
+        }
+        .row1 , .row{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            cursor: default;
+        }
+        .row1{
+            justify-content: space-between;
+        }
+        .orderId{
+            color: rgb(177, 175, 175);
+            font-size: 14px;
+            margin-left: 7px;
+            padding-top: 3px;
+        }
+        span{
+            height: 30px;
+        }
+        .status{
+            color:#f1c40f;
+            font-size: 16px;
+            font-weight: bold;
+            padding-left: 8px;
+        }
+        .text1{
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .text2{
+            color: rgb(207, 204, 204);
+            font-size: 14px;
+            font-weight: bold;
+            padding-left: 8px;
+        }
+        .review{
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            .rating {
+                font-size: 25px;
+                color: #f1c40f; 
+                cursor: default;
+              }
+              
+              .star {
+                display: inline-block;
+                transition: color 0.2s;
+              }
+              
+              .star:hover,
+              .star:hover ~ .star {
+                color: #f39c12;
+              }
+              .notyet{
+                padding-bottom: 6px;
+                margin-left: 5px;
+                color: rgb(207, 204, 204);
+                font-size: 12px;
+              }
+                
+        }
+        .row2{
+            width: 700px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 20px;
+        }
+        button{
+            width: 130px;
+            height: 35px;
+            border-radius: 5px;
+            background-color: rgb(5, 145, 5);
+            color: white;
+            border: 0px solid transparent;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        button:hover{
+            transform: scale(1.1);
+        }
+        .cancel{
+            background-color: red;
+        }
+        .close{
+            background-color: grey;
+        }
+        .new1{
+            color: #f1c40f;
+        }
+        .accepted{
+            color: green;
+        }
+        .cancelled{
+            color: red;
+        }
+    }
+    
+}

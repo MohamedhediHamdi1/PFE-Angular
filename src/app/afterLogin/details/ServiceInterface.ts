@@ -1,0 +1,19 @@
+export interface ServiceInterface{
+    privateId:String;
+    companyId:String;
+    logoCompany:String;
+    nameCompany:String;
+    name:String;
+    more_description:String;
+    description:String;
+    image:String;
+    video:String;
+    price:number;
+    review:number;
+    category:String;
+    date:String;
+    nb_buy:String;
+    nb_click:String;
+    impression:String;
+    visible:boolean
+}

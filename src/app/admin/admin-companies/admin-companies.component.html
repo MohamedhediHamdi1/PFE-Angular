@@ -1,0 +1,91 @@
+<div class="body">
+    <div class="search">
+        <input (keyup.enter)="getCompanies()" placeholder="Search" type="text" [(ngModel)]="search">
+        <img (click)="getCompanies()" src="/assets/navbar/search.png">
+    </div>
+
+    <div class="row">
+        <div class="button" (click)="getCompaniesByType('all')">All</div>
+        <div class="button" (click)="getCompaniesByType('verified')">Verified</div>
+        <div class="button" (click)="getCompaniesByType('unverified')">Unverified</div>
+        <div class="button" (click)="getCompaniesByType('active')">Active</div>
+        <div class="button" (click)="getCompaniesByType('desactive')">Desactive</div>
+    </div>
+
+    <div class="container">
+        <div class="title">
+            <div class="userid">Id</div>
+            <div class="name">Name</div>
+            <div class="address">Country</div>
+            <div class="address">State</div>
+            <div class="address">Address</div>
+            <div class="userid">userId</div>
+            <div class="boolean">Verified</div>
+            <div class="boolean">Cor Id</div>
+            <div class="address">Business Id</div>
+            <div class="boolean">Rate</div>
+            <div class="name">Website</div>
+            <div class="address">Category</div>
+        </div>
+        <div class="list" *ngFor="let list of companyList;let index=index" >
+            <div class="title title1" (click)="showEditCompany(index)">
+                <div class="userid">{{list.companyId}}</div>
+                <div class="name">{{list.fullName}}</div>
+                <div class="address">{{list.country}}</div>
+                <div class="address">{{list.state}}</div>
+                <div class="address">{{list.adress}}</div>
+                <div class="userid">{{list.userId}}</div>
+                <div class="boolean">{{list.verified}}</div>
+                <div class="boolean">{{list.corporation}}</div>
+                <div class="address">{{list.businessNumber}}</div>
+                <div class="boolean">{{list.review}}</div>
+                <div class="name">{{list.website}}</div>
+                <div class="address">{{list.category}}</div>
+            </div>
+        </div>
+    </div>
+    <pagination-controls (pageChange)="onPageChange($event)" [currentPage]="page" [totalItems]="totalItems" [itemsPerPage]="20" ></pagination-controls>
+</div>
+
+<div *ngIf="showEdit" class="editUser">
+    <div class="countainer">
+        <div class="close" (click)="showEdit=false">close</div>
+        <div class="row">
+            <div class="id">CompanyId : </div>
+            <div class="_id">{{company!.companyId}}</div>
+        </div>
+        <div class="country">
+            <select  class="input" name="category" id="category"  required [(ngModel)]="select">
+            <option value="Name" >Name</option>
+            <option value="Country">Country</option>
+            <option value="State">State</option>
+            <option value="Address">Address</option>
+            <option value="Cor_Id">Cor_Id</option>
+            <option value="Business_Id">Business_Id</option>
+            <option value="Website">Website</option>
+            <option value="Category">Category</option>
+          </select>
+        </div>
+        <input type="text" class="input" [(ngModel)]="update">
+        <div class="row">
+            <button class="update" (click)="editCompany()">Update</button>
+            <button *ngIf="company!.active" class="update block" (click)="showEdit=false;showBlockCompany=true">Block</button>
+            <button *ngIf="!company!.active" class="update" (click)="unblockCompany()">Unblock</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="showBlockCompany" class="blockuser">
+    <div class="countainer1">
+        <div class="close1" (click)="showBlockCompany=false">close</div>
+        <div class="row">
+            <div class="id">CompanyId : </div>
+            <div class="_id">{{company!.companyId}}</div>
+        </div>
+        <div class="reason">Reason</div>
+        <textarea class="input" [(ngModel)]="reason"></textarea>
+        <div class="length">min 20/{{reason.length}}</div>
+        <button *ngIf="company!.active" class="update" (click)="blockCompany()">Block</button>
+        
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="body">
+    <div class="container">
+        <div class="title">
+            <div class="name">Id</div>
+            <div class="name">Message Id</div>
+            <div class="name">Reported Message</div>
+            <div class="name">Reported User</div>
+            <div class="name">Report User</div>
+            <div class="name">Admin</div>
+        </div>
+        <div class="list" *ngFor="let list of reportList;let index=index" (click)="getOneReport(index)">
+            <div class="title title1">
+                <div class="name">{{list.reportId}}</div>
+                <div class="name">{{list.messageId}}</div>
+                <div class="name">{{list.reportedMessage}}</div>
+                <div class="name">{{list.reportedUser}}</div>
+                <div class="name">{{list.reportUser}}</div>
+                <div class="name">{{list.admin}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="showReplied" class="blockuser">
+    <div class="countainer1">
+        <div class="close1" (click)="showReplied=false">close</div>
+        <div class="row">
+            <div class="id">Report Id : </div>
+            <div class="_id">{{report!.reportId}}</div>
+        </div>
+    
+        <button class="update" (click)="done()">Done</button>
+        
+    </div>
+</div>

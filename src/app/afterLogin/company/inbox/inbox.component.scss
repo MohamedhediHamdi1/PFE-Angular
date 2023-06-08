@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
+
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 50px 0;
+    background-color: rgba(16, 23, 40, 255);
+
+    .row {
+        width: 90%;
+        min-height: 600px;
+        display: flex;
+        flex-direction: row;
+        border-radius: 10px;
+        border: 1px rgb(185, 177, 177) solid;
+        background-color: #071025;
+        cursor: default;
+    }
+
+    .column1 {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid rgb(185, 177, 177);
+
+        .allConv {
+            height: 70px;
+            border-bottom: 1px solid rgb(185, 177, 177);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+
+            img {
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+                transition: transform 0.3s ease-in-out;
+            }
+            img:hover{
+                transform: scale(1.2);
+            }
+
+            .text1 {
+                color: white;
+                font-size: 18px;
+                font-weight: bold;
+            }
+            input{
+                width: 80%;
+                height: 25px;
+                background-color: #172544;
+                border: .1px solid rgb(185, 177, 177);
+                border-radius: 5px;
+                padding-left: 5px;
+                color: white;
+                font-size: 16px;
+            }
+            input:focus {
+                outline: none;
+            }
+            input::placeholder{
+                color: white;
+            }
+            
+        }
+
+        .channels {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+
+            .row4 {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .list_channels {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                height: 60px;
+                padding: 5px 15px;
+                border-bottom: 1px solid rgb(185, 177, 177);
+                cursor: pointer;
+                img {
+                    width: 30px;
+                    height: 30px;
+                }
+               
+
+                .name {
+                    color: white;
+                    font-size: 16px;
+                    font-weight: bold;
+                    font-family: 'Golos', sans-serif;
+                }
+
+                .channel_message {
+                    max-lines: 1;
+                    color: rgb(211, 205, 205);
+                    font-size: 14px;
+                    font-family: 'Tajawal', sans-serif;
+                }
+
+                .date {
+                    color: white;
+                    font-size: 13px;
+                    font-family: 'Golos', sans-serif;
+                }
+            }
+        }
+    }
+
+    .column2 {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+
+        .title {
+            width: 100%;
+            height: 70px;
+            border-bottom: 1px solid rgb(185, 177, 177);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+
+            .name {
+                color: white;
+                font-size: 18px;
+                font-weight: bold;
+                font-family: 'Golos', sans-serif;
+            }
+
+            .row5 {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                gap: 10px;
+                margin-right: 15px;
+
+                img {
+                    width: 22px;
+                    height: 22px;
+                    transition: transform 0.3s ease-in-out;
+                    cursor: pointer;
+                }
+                img:hover{
+                    transform: scale(1.2);
+                }
+            }
+
+            span {
+                width: 50px;
+            }
+        }
+
+        .messages {
+            min-height: 530px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow-y: auto;
+            .showMore , .back{
+                margin-left: 49%;
+                margin-bottom: 20px;
+                font-size: 20px;
+                font-weight: bold;
+                color: white;
+                font-family: 'Tajawal',sans-serif;
+                cursor: pointer;
+            }
+            .showMore:hover, .back:hover{
+                color: gray;
+            }
+            .back{
+                margin-bottom: 0px;
+            }
+            
+            .row5 {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                position: relative;
+                border-top: 1px solid rgb(185, 177, 177);
+                margin-top: 20px;
+            }
+
+            input {
+                background-color: transparent;
+                height: 50px;
+                width: 90%;
+                border: 0px solid white;
+                display: flex;
+                color: white;
+                font-size: 16px;
+                padding-left: 10px;
+                font-family: 'Tajawal', sans-serif;
+            }
+
+            input:focus {
+                outline: none;
+            }
+
+            input::placeholder {
+                color: white;
+                font-size: 18px;
+                padding-left: 2px;
+            }
+
+            button {
+                width: 9%;
+                height: 51px;
+                font-size: 18px;
+                font-weight: bold;
+                font-family: 'Tajawal', sans-serif;
+                border: 0px solid transparent;
+                border-left: 1px solid rgb(185, 177, 177);
+                color: white;
+                background-color: #071025;
+                cursor: pointer;
+                transition: transform 0.2s ease-in-out;
+            }
+
+            button:hover {
+                font-size: 20px;
+            }
+
+            .emoji {
+                margin-right: 10px;
+                cursor: pointer;
+                transform: scale(1.2);
+            }
+
+            .emoji_list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 5px;
+                position: absolute;
+                bottom: 40px;
+                z-index: 1;
+                right: 11%;
+                width: 180px;
+                border-radius: 10px;
+                background-color: white;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                padding: 0.5em;
+
+                .li {
+                    width: 25px;
+                    transition: transform 0.3s ease-in-out;
+                    cursor: pointer;
+                }
+
+                .li:hover {
+                    transform: scale(1.2);
+                }
+            }
+
+
+            .message_list {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin-left: 20px;
+                margin-right: 20px;
+                margin-bottom: 10px;
+                min-width: 30%;
+                position: relative;
+
+                img {
+                    width: 30px;
+                    height: 30px;
+                }
+                .column8{
+                    max-width: 70%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    position: relative;
+                    cursor: pointer;
+                    .row8{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                    }
+                    .lastDate{
+                        display: flex;
+                        color: gray;
+                        font-size: 13px;
+                        font-family: 'Golos',sans-serif;
+                        margin-left: -5px;
+                    }
+                    .text {
+                        color: white;
+                        font-size: 14;
+                        font-family: 'Tajawal', sans-serif;
+                        margin-left: 10px;
+                        margin-right: 10px;
+                        padding: 7px 20px;
+                        border-radius: 20px;
+                        background-color: #172544;
+                        max-width: 85%;
+                    }
+                    .time{
+                        display: none;
+                    }
+                    .delete{
+                        display: flex;
+                        position: absolute;
+                        top: -25px;
+                        padding: 5px 15px;
+                        background-color: gray;
+                        color: white;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        font-size: 15px;
+                    }
+                }
+
+                
+                .column8:hover{
+                    .time{
+                        display: flex;
+                        color: gray;
+                        font-size: 13px;
+                        font-family: 'Golos',sans-serif;
+                        margin-left: -5px;
+                    }
+                    .lastDate{
+                        display: none;
+                    }
+                }
+
+                .message_menu {
+                    display: none;
+                }
+    
+               
+
+                .row7 {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 1px;
+                    cursor: pointer;
+
+                    img {
+                        width: 18px;
+                        height: 18px;
+                    }
+
+                    .text7 {
+                        color: white;
+                        font-size: 16px;
+                        font-family: 'Tajawal', sans-serif;
+                    }
+                }
+            }
+            .message_list:hover{
+                .message_menu {
+                    position: absolute;
+                    display: flex;
+                    top: 35px;
+                    margin-left: 190px;
+                }
+            }
+            
+        }
+    }
+
+
+}

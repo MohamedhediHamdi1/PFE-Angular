@@ -1,0 +1,76 @@
+<div class="body">
+
+    <div class="search">
+        <input (keyup.enter)="getUsers()" placeholder="Search" type="text" [(ngModel)]="search">
+        <img (click)="getUsers()" src="/assets/navbar/search.png">
+    </div>
+
+    <div class="container">
+        <div class="title">
+            <div class="userid">User Id</div>
+            <div class="name">FirstName</div>
+            <div class="name">LastName</div>
+            <div class="adress">Country</div>
+            <div class="adress">State</div>
+            <div class="adress">Address</div>
+            <div class="userid">Company Id</div>
+            <div class="membership">Member Ship</div>
+        </div>
+        <div class="list" *ngFor="let list of usersList ; let index =index">
+            <div class="title title1" (click)="showEditUser(index)">
+                <div class="userid">{{list.userId}}</div>
+                <div class="name">{{list.firstname}}</div>
+                <div class="name">{{list.lastname}}</div>
+                <div class="adress">{{list.country}}</div>
+                <div class="adress">{{list.state}}</div>
+                <div class="adress">{{list.address1}}</div>
+                <div class="userid">{{list.prestataireID}}</div>
+                <div class="membership">{{list.membership}}</div>
+            </div>
+        </div>
+    </div>
+    <pagination-controls (pageChange)="onPageChange($event)" [currentPage]="page" [totalItems]="totalItems" [itemsPerPage]="20" ></pagination-controls>
+</div>
+
+
+<div *ngIf="showEdit" class="editUser">
+    <div class="countainer">
+        <div class="close" (click)="showEdit=false">close</div>
+        <div class="row">
+            <div class="id">UserId : </div>
+            <div class="_id">{{user!.userId}}</div>
+        </div>
+        <div class="country">
+            <select  class="input" name="category" id="category"  required [(ngModel)]="select">
+            <option value="FirstName" >FirstName</option>
+            <option  value="LastName">LastName</option>
+            <option value="Country">Country</option>
+            <option value="State">State</option>
+            <option value="Address">Address</option>
+            <option value="Address">MemberShip</option>
+          </select>
+        </div>
+        <input type="text" class="input" [(ngModel)]="update">
+        <div class="row">
+            <button class="update" (click)="editUser()">Update</button>
+            <button *ngIf="user!.active" class="update block" (click)="showEdit=false;showBlockUser=true">Block</button>
+            <button *ngIf="!user!.active" class="update" (click)="unblockUser()">Unblock</button>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="showBlockUser" class="blockuser">
+    <div class="countainer1">
+        <div class="close1" (click)="showBlockUser=false">close</div>
+        <div class="row">
+            <div class="id">UserId : </div>
+            <div class="_id">{{user!.userId}}</div>
+        </div>
+        <div class="reason">Reason</div>
+        <textarea class="input" [(ngModel)]="reason"></textarea>
+        <div class="length">min 20/{{reason.length}}</div>
+        <button *ngIf="user!.active" class="update" (click)="blockUser()">Block</button>
+        
+    </div>
+</div>

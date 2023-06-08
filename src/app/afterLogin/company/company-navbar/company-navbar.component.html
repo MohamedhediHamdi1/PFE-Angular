@@ -1,0 +1,80 @@
+<div class="body">
+    <img class="image1" src="/assets/navbar/logo.jpg"  routerLink="/s/seller">
+    <div class="left">
+        <img class="logo" src="/assets/navbar/logo.jpg"  routerLink="/s/seller">
+        <h2 routerLink="/s/seller">Dashboard</h2>
+        <h2 routerLink="orders">Orders</h2>
+        <h2 routerLink="earnings">Earnings</h2>
+        <h2 routerLink="analytics">Analytics</h2>
+    </div>
+    <div class="right">
+        <div class="image-container notifications">
+            <img class="img" src="/assets/bell.png" (click)="toggleNotifications()">
+            <div class="red-point" *ngIf="newNotifications"></div>
+            <app-notification-bar *ngIf="notification" (mouseleave)="notification=false"></app-notification-bar>
+        </div>
+        <div class="messages">
+            <div class="image-container">
+                <img class="img" src="/assets/email.png" (click)="toggleMessages()">
+                <div class="red-point" *ngIf="newMessages"></div>
+            </div>
+            <div class="messageList" *ngIf="messages" (mouseleave)="messages=false">
+                <div class="h3">Inbox</div>
+                <div class="line"></div>
+                <div class="list_channels" *ngFor="let list of channels ;let i=index"
+                    (click)="goToInbox(list.channelId!)" [ngStyle]="list.vue==false ? {'background-color':'#030a1d'}:{}">
+                    <div class="row4">
+                        <img src="{{image2}}">
+                        <div class="column3">
+                            <div class="name" *ngIf="list.senderId!=userId" [ngStyle]="list.vue==false ? {'font-size':'16px','font-weight':'bold'}:{}">{{list.senderName}}</div>
+                            <div class="name" *ngIf="list.senderId ==userId" [ngStyle]="list.vue==false ? {'font-size':'16px','font-weight':'bold'}:{}">{{list.recieverName}}</div>
+                            <div class="channel_message"
+                                [ngStyle]="list.vue==false ? {'font-weight':'bold','font-size':'16px','color':'white'}:{}">
+                                {{ list.lastMessage | slice:0:25 }}{{ list.lastMessage!.length > 25 ? '...' : '' }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="date">{{list.lastMessageDate}}</div>
+                </div>
+                <div class="more" *ngIf="totalItems-currentPage*10>0" (click)="showMore()">More</div>
+            </div>
+        </div>
+        <h3 routerLink="/s">Switching to Buyer</h3>
+        <img src="{{imageUrl}}" >
+        <h4>{{displayName}}</h4>
+    </div>
+    <img class="menu-icon" src="/assets/navbar/menu.png" (click)="toggledrawer()">
+</div>
+
+
+<div class="drawer" *ngIf="drawer" >
+    
+    <div class="right1">
+        <div class="user">
+            <img src="http://localhost:8081/images/F4WO0oZQjiimVmCMJUUr" >
+            <p>Display Name</p>
+        </div>
+        
+        <div class="message">
+            <img src="/assets/dashboard.png">
+            <p>Dashboard</p>
+        </div>
+        <div class="message">
+            <img src="/assets/bar-chart.png">
+            <p>Earnings</p>
+        </div>
+        <div class="message">
+            <img src="/assets/data-analytics.png">
+            <p>Analytics</p>
+        </div>
+        <div class="message">
+            <img src="/assets/orders.png">
+            <p>Orders</p>
+        </div>
+        <div class="message">
+            <img src="/assets/switch.png">
+            <p class="switchingtobuyer">Switching to buyer</p>
+        </div>
+</div>
+</div>
+<div class="left_drawer" *ngIf="drawer" (click)="toggledrawer()"></div>

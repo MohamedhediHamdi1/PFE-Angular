@@ -1,0 +1,73 @@
+
+<div class="body">
+    <h1>Create Account</h1>
+    <form name="accountForm" (ngSubmit)="onSubmit()" #accountForm="ngForm">
+      <input class="input" type="text" placeholder="First Name*" pattern="[a-zA-Z ]*" required name="firstname"  [(ngModel)]="accountData.firstname" #firstname="ngModel">
+      <div *ngIf="check_error && firstname.invalid" class="error">First name is required.</div>
+    <input class="input" type="text" placeholder="Last Name*" required name="lastname" [(ngModel)]="accountData.lastname" #lastname="ngModel">
+    <div *ngIf="check_error && lastname.invalid" class="error">Last name is required.</div>
+    <input class="input" type="text" placeholder="Address (Line1)*" required name="address1" [(ngModel)]="accountData.address1" #address1="ngModel">
+    <div *ngIf="check_error && address1.invalid" class="error">Address1 is required.</div>
+    <input class="input" type="text" placeholder="Address (Line2)"  name="address2" [(ngModel)]="accountData.address2">
+    <input class="input" type="text" placeholder="City*" required name="city" [(ngModel)]="accountData.city" #city="ngModel">
+    <div *ngIf="check_error && city.invalid" class="error">City is required.</div>
+    <input class="input" type="number" placeholder="Zip Code*" required name="zipcode" [(ngModel)]="accountData.zipcode" #zipcode="ngModel">
+    <div *ngIf="check_error && zipcode.invalid" class="error">Zipcode is required.</div>
+    <input class="input" type="text" placeholder="State*" required name="state" [(ngModel)]="accountData.state" #state="ngModel">
+    <div *ngIf="check_error && state.invalid" class="error">State is required.</div>
+    <div>
+        <select (click)=" check_contry()" class="input" name="country" id="country"  required name="country" [(ngModel)]="accountData.country" #country="ngModel">
+        <option  value="Select a country*" >Select a country*</option>
+        <option  value="Tunisia" >Tunisia</option>
+        <option value="Canada">Canada</option>
+      </select>
+    </div>
+    <div *ngIf="check_country" class="error">Country is required.</div>
+    <input class="input" type="number" placeholder="Phone Number*" required name="phone" (input)="phonecheck()" [(ngModel)]="accountData.phone" #phone="ngModel">
+    <div *ngIf="phone_check" class="error">Phone is not correct.</div>
+    <input class="input" type="email" placeholder="Email*" required name="email" [(ngModel)]="accountData.email"  #email="ngModel">
+    <div *ngIf="check_error && email.invalid || check_email" class="error">{{emaail}}</div>
+    <div class="pass_eye">
+      <input class="input" type="{{showPassword ? 'text' : 'password'}}" placeholder="Password*" required name="password" [(ngModel)]="accountData.password" #password="ngModel">
+      <img (click)="togglePasswordVisibility()" class="eye" src="/assets/hidden.png" alt="">
+    </div>
+    <div *ngIf="check_error && password.invalid" class="error">{{pasword}}</div>
+    <input class="input" type="{{showPassword ? 'text' : 'password'}}"  placeholder="Confirm Password*" name="Confirm_Password" required [(ngModel)]="accountData.cpassword">
+    <div *ngIf="confirm_password" class="error">Password not matching</div>
+    </form>
+    <div class="center">
+        <div class="remember">
+            <label class="container" [ngClass]="{'unchecked': !termsAgreed && check_error}">One
+                <input type="checkbox" [(ngModel)]="termsAgreed" (click)="check_terms()">
+                <span class="checkmark"></span>
+              </label>
+            <h3>I agree to</h3>
+        </div>
+        <h4>Terms and Conditions</h4>
+    </div>
+    <ngx-recaptcha2 class="capatcha" (success)="handleSuccess()" siteKey="6LdAs_skAAAAAJxfTO3eJRZp42yR0qEb_Rs4RvXO"></ngx-recaptcha2>
+    <button [disabled]="capatcha" class="join" (click)="onSubmit()">Create</button>
+</div>
+
+
+
+
+<app-spinkit *ngIf="isLoading"></app-spinkit>
+<div *ngIf="show_verfcode" class="body1">
+  <div class="verf">
+   <div class="start">
+    <div class="text">Email verification code sent to {{accountData.email}}</div>
+<input class="input" type="number" placeholder="6-digit Code" required [(ngModel)]="emailcode" name="emailcode" (input)="checkEmailCodeLength()">
+<div *ngIf="emailCodeError" class="error">Email verification code should be 6 digits</div>
+
+<div class="text">Phone verification code sent to {{accountData.phone}}</div>
+<input class="input" type="number" placeholder="6-digit Code" required [(ngModel)]="phonecode" name="phonecode" (input)="checkPhoneCodeLength()">
+<div *ngIf="phoneCodeError" class="error">Phone verification code should be 6 digits</div>
+
+    <div  class="error">{{error_res}}</div>
+    <div class="timer" >Verification code will expire in {{remainingTime}} seconds</div>
+   </div>
+    <ngx-recaptcha2 class="capatcha" (success)="handleSuccess2()" siteKey="6LdAs_skAAAAAJxfTO3eJRZp42yR0qEb_Rs4RvXO"></ngx-recaptcha2>
+    <button  class="join" (click)="onSubmitcode()">Send</button>
+  </div>
+</div>

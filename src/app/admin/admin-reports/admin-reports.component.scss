@@ -1,0 +1,114 @@
+.body{
+    background-color: #A5A5A5;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .container{
+        width: 70%;
+        min-height: 85vh;
+        background-color: white;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        margin: 20px;
+        .title{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            height: 40px;
+            border: 1px solid black;
+            border-right: none;
+            border-radius: 3px;
+            div{
+                
+                color: black;
+                font-family: 'Tajawal',sans-serif;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-right: 1px solid black;
+            }
+            .name{
+                font-size: 15px;
+                width: 20%;
+                height: 100%;
+            }
+        }
+        .title1{
+          cursor: pointer;
+        }
+    }
+}
+
+.blockuser{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    backdrop-filter: blur(2px);
+    .countainer1{
+      width: 30%;
+      background-color: gray;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+      padding-top: 5px;
+      padding-right: 15px;
+      .close1{
+        width: 100%;
+        height: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        cursor: pointer;
+        font-size: 15px;
+        font-family: 'Tajawal',sans-serif;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      .row{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+        .id{
+          font-size: 18px;
+          font-family: 'Tajawal',sans-serif;
+          color: black;
+          font-weight: bold;
+        }
+        ._id{
+          font-size: 15px;
+          font-family: 'Tajawal',sans-serif;
+          color: black;
+          font-weight: bold;
+        }
+      }
+    
+    .update {
+      width: 90px;
+      height: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      background-color: green;
+      border: 0px solid transparent;
+      border-radius: 3px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    
+    
+    }
+  }

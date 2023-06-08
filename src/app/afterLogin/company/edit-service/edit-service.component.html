@@ -1,0 +1,118 @@
+<div class="html">
+    <div class="body">
+        <h1>Edit Service</h1>
+        <div class="row">
+            <h3>Service Title</h3>
+        </div>
+        <div class="row">
+            <p *ngIf="!input_title">{{serviceList?.name}}</p>
+            <div class="column" *ngIf="input_title">
+                <input type="text" [(ngModel)]="title" [ngStyle]="title!.length<10 || title!.length>50 ? {'border':'1px solid red'}:{}">
+                <div class="row2">10/{{title?.length}}/50</div>
+            </div>
+            <div class="row3">
+                <div class="button" (click)="onEdit('title')" *ngIf="!input_title">Edit</div>
+                <div class="button" *ngIf="input_title" (click)="onSave('name',title!)">Save</div>
+                <div class="button" (click)="onEdit('title')" *ngIf="input_title">Cancel</div>
+            </div>
+
+        </div>
+        <div class="row">
+            <h3>Image</h3>
+        </div>
+        <div class="row">
+            <img (click)="fileInput.click()" src={{imageurl}}>
+            <input class="chooseImage" type="file" accept="image/*" #fileInput (change)="onFileSelected($event)">
+            <div class="row3">
+                <div class="button" *ngIf="input_image" (click)="uploadImage() ">Save</div>
+                <div class="button" (click)="onEdit('image')" *ngIf="input_image">Cancel</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <h3>Video</h3>
+        </div>
+        <div class="row">
+            <img *ngIf="serviceList?.video?.length!<31" (click)="fileInput.click()" src='assets/add-video.png' class="videoImage">
+            <video [ngStyle]="!file && serviceList?.video?.length!<31 ?{'display':'none'}:{}" #videoPlayer controls class="videoPlayer"><source [src]="videoUrl" type="video/mp4"> </video>
+            <input class="chooseImage" type="file" accept="video/mp4,video/webm,video/ogg" #fileInput1 (change)="onVideoSelected($event)">
+            <div class="row3">
+                <div class="button" (click)="fileInput1.click()" *ngIf="!file">Edit</div>
+                <div class="button" *ngIf="file" (click)="uploadVideo()">Save</div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <h3>Price</h3>
+        </div>
+        <div class="row">
+            <p *ngIf="!input_price">${{serviceList?.price}}</p>
+            <div class="column" *ngIf="input_price">
+                <input type="text" [(ngModel)]="price" [ngStyle]="checkPrice() ? {'border':'1px solid red'}:{}">
+                <div class="row2">$10/${{price}}/$10000</div>
+            </div>
+            <div class="row3">
+                <div class="button" (click)="onEdit('price')" *ngIf="!input_price">Edit</div>
+                <div class="button" *ngIf="input_price" (click)="onSave('price',price!)">Save</div>
+                <div class="button" (click)="onEdit('price')" *ngIf="input_price">Cancel</div>
+            </div>
+        </div>
+        <div class="row">
+            <h3>Category</h3>
+        </div>
+        <div class="row">
+            <p *ngIf="!input_category">{{serviceList?.category}}</p>
+            <div class="column" *ngIf="input_category">
+                <select class="input" name="country" id="country" required name="country" [(ngModel)]="category" [ngStyle]="category =='Category' ? {'border':'1px solid red'}:{} ">
+                    <option value="Category">Category</option>
+                    <option value="Category1">Category1</option>
+                    <option value="Category2">Category2</option>
+                    <option value="Category3">Category3</option>
+                    <option value="Category4">Category4</option>
+                    <option value="Category5">Category5</option>
+                    <option value="Category6">Category6</option>
+                </select>
+            </div>
+            <div class="row3">
+                <div class="button" (click)="onEdit('category')" *ngIf="!input_category">Edit</div>
+                <div class="button" *ngIf="input_category" (click)="onSave('category',category!)">Save</div>
+                <div class="button" (click)="onEdit('category')" *ngIf="input_category">Cancel</div>
+            </div>
+        </div>
+        <div class="row">
+            <h3>Description</h3>
+        </div>
+        <div class="row">
+            <p *ngIf="!input_description">{{serviceList?.description}}</p>
+            <div class="column" *ngIf="input_description">
+                <textarea minlength="100" maxlength="150" [(ngModel)]="description" [ngStyle]="description!.length>150 || description!.length<100 ? {'border':'2px solid red'}:{} "></textarea>
+                <div class="row2">100/{{description?.length}}/150</div>
+            </div>
+            <div class="row3">
+                <div class="button" (click)="onEdit('description')" *ngIf="!input_description">Edit</div>
+                <div class="button" *ngIf="input_description" (click)="onSave('description',description!)">Save</div>
+                <div class="button" (click)="onEdit('description')" *ngIf="input_description">Cancel</div>
+            </div>
+        </div>
+        <div class="row">
+            <h3>Breif Description</h3>1
+        </div>
+        <div class="row">
+            <p *ngIf="!input_briefDescription">{{serviceList?.more_description}}</p>
+            <div class="column" *ngIf="input_briefDescription">
+                <textarea class="briefDescription" minlength="300" maxlength="500"
+                    [(ngModel)]="briefDescription" [ngStyle]="briefDescription!.length>500 || briefDescription!.length<300 ? {'border':'2px solid red'}:{} "></textarea>
+                <div class="row2">300/{{briefDescription?.length}}/500</div>
+            </div>
+            <div class="row3">
+                <div class="button" (click)="onEdit('briefDescription')" *ngIf="!input_briefDescription">Edit</div>
+                <div class="button" *ngIf="input_briefDescription" (click)="onSave('more_descrption',briefDescription!)">Save</div>
+                <div class="button" (click)="onEdit('briefDescription')" *ngIf="input_briefDescription">Cancel</div>
+            </div>
+        </div>
+        <div class="continue" (click)="onContinue()"><button>Continue</button></div>
+    </div>
+</div>
+
+<app-spinkit *ngIf="isLoading"></app-spinkit>

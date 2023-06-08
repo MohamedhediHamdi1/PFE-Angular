@@ -1,0 +1,26 @@
+<div class="body">
+    <h2>Notifications</h2>
+    <div class="row">
+        <h4>Inbox Messages</h4>
+        <input type="checkbox" [(ngModel)]="InboxMessages">
+    </div>
+    <div class="row">
+        <h4>Order Messages</h4>
+        <input type="checkbox" [(ngModel)]="OrderMessages">
+    </div>
+    <div class="row">
+        <h4>Order Updates</h4>
+        <input type="checkbox" [(ngModel)]="OrderUpdates">
+    </div>
+    <div class="row">
+        <h4>Rating Reminders</h4>
+        <input type="checkbox" [(ngModel)]="RatingReminders">
+    </div>
+    <div class="row">
+        <h4>Buyer Briefs</h4>
+        <input type="checkbox" [(ngModel)]="BuyerBriefs">
+    </div>
+    <div class="row1">
+        <div class="button" (click)="saveChanges()">Save Changes</div>
+    </div>
+</div>

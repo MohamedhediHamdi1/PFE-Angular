@@ -1,0 +1,72 @@
+<div class="body">
+    <div class="row">
+        <div class="left">
+            <div class="row1">
+                <img src="{{imageUrl+company_list?.logo}}">
+                <div class="column1">
+                    <div class="companyName">{{company_list?.fullName}}</div>
+                    <div class="country">
+                        <img *ngIf="company_list?.country=='Tunisia'" src="assets/tunisia.png" class="logo">
+                        <img *ngIf="company_list?.country=='Canada'" src="assets/canada.png" class="logo">
+                        <div class="name">{{company_list?.country}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="description">{{company_list?.description}}</div>
+        </div>
+        <div class="right">
+            <div class="rows">
+                <div class="title">Category</div>
+                <div class="details">:  {{company_list?.category}}</div>
+            </div>
+            <div class="rows">
+                <div class="title">State</div>
+                <div class="details">:  {{company_list?.state}}</div>
+            </div>
+            <div class="rows">
+                <div class="title">Postal Code</div>
+                <div class="details">:  {{company_list?.postalCode}}</div>
+            </div>
+            <div class="rows">
+                <div class="title">Address</div>
+                <div class="details">:  {{company_list?.adress}}</div>
+            </div>
+            <div class="rows">
+                <div class="title">Website</div>
+                <div class="details">:  {{company_list?.website}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="button" (click)="message= !message">Message</div>
+    <app-reviews></app-reviews>
+    <h1>Services</h1>
+    <div class="list" *ngFor="let list of service_list ; let i =index; let last = last" (click)="goToService(list.privateId)">
+        
+        <div class="left">
+            <h1>{{list.name}}</h1>
+            <p>
+               {{list.description}}
+            </p>
+                <div class="row">
+                    <div class="review">
+                        <div class="rating">
+                            <span class="star" *ngFor="let star of getStars(list.review)">{{ star }}</span>
+                          </div>
+                    </div>
+                    <div class="price">{{list.price}}$</div>
+                </div>
+        </div>
+        <img *ngIf="i%2==0" class="right0" src="assets/WebDevelopmentImage.jpg">
+        <img *ngIf="i%2==1" class="right2" src="assets/WebDevelopmentImage.jpg">
+        <div class="row1">
+            <div class="review1">
+                <div class="rating1">
+                    <span class="star1" *ngFor="let star of getStars(list.review)">{{ star }}</span>
+                  </div>
+            </div>
+            <div class="price1">{{list.price}}$</div>
+        </div>
+    </div>
+</div>
+
+<app-send-message *ngIf="message" [constantValue]="company_list?.companyId!.toString()"></app-send-message>

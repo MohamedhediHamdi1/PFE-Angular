@@ -1,0 +1,30 @@
+<div class="body">
+    <div class="row">
+        <img src="assets/chat-bubble.png" >
+        <div class="title">Rate and Review</div>
+    </div>
+    <div class="desc">How would you rate your overall experience with this seller?</div>
+    <div class="line"></div>
+    <div class="row">
+        <img src="{{image}}" alt="">
+        <div class="column">
+            <div class="name">{{userName}}</div>
+            <div class="post">Posting publicly</div>
+        </div>
+    </div>
+    <div class="review">
+        <div class="rating">
+            <span class="star" *ngFor="let star of stars; let i=index" (click)="onStarClicked(i)">{{ star }}</span>
+          </div>
+    </div>
+    <textarea minlength="10" maxlength="300" placeholder="Share some details (public)" [(ngModel)]="review"></textarea>
+    <div class="error">10/{{review.length}}/300</div>
+    <button (click)="createReview()">Submit</button>
+</div>
+
+<div *ngIf="submission_succussful" class="submission_succussful">
+    <img src="assets/start_selling_navbar/check.png" >
+    <h2>Submission Successful!</h2>
+    <p>Your review has been added Successfully.</p>
+    <div class="button" (click)="onDone()" >OK</div>
+</div>

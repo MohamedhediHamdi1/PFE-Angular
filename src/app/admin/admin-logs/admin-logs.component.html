@@ -1,0 +1,11 @@
+
+<div class="body">
+    <div class="row">
+        <button (click)="decrementDate()">Previous</button>
+        <input type="date" [(ngModel)]="currentDate" (change)="getNewLogs()" [max]="today" [min]="min" >
+        <button (click)="incrementDate()">Next</button>
+    </div>
+    <div *ngIf="fileContent" class="logs">
+        <pre class="fileContent">{{ fileContent }}</pre>
+    </div>
+</div>

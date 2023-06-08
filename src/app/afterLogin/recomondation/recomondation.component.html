@@ -1,0 +1,31 @@
+<div class="html">
+    <div *ngIf="service_list.length>0" class="recomandation">Recomandation</div>
+<div class="body">
+    <div class="list" *ngFor="let list of service_list ;let i =index; let last = last" >
+        
+        <div class="left">
+            <h1>{{list.name}}</h1>
+            <p>{{list.description}}</p>
+                <div class="row">
+                    <div class="review">
+                        <div class="rating">
+                            <span class="star" *ngFor="let star of getStars(list.review)">{{ star }}</span>
+                          </div>
+                    </div>
+                    <div class="price">{{list.price}}$</div>
+                </div>
+        </div>
+        <img *ngIf="i%2==0" class="right" src="assets/WebDevelopmentImage.jpg">
+        <img *ngIf="i%2==1" class="right2" src="assets/WebDevelopmentImage.jpg">
+        <div class="row1">
+            <div class="review1">
+                <div class="rating1">
+                    <span class="star1" *ngFor="let star of getStars(list.review)">{{ star }}</span>
+                  </div>
+            </div>
+            <div class="price1">{{list.price}}$</div>
+        </div>
+    </div>
+</div>
+<img *ngIf="show_More" (click)="showMore()" src="assets/navbar/arrow-down.png" alt="Show More"  class="showMore">
+</div>

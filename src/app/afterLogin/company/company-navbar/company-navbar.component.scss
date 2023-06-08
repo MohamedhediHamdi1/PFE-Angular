@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
+
+.body{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    background-color:rgba(16,23,40,255);
+    border-bottom: 1px solid rgb(185, 177, 177);
+    .image1{
+        display: none;
+    }
+    .left{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        img{
+            height: 30px;
+            margin-left: 10px;
+            margin-right: 20px;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+        img:hover {
+            transform: scale(1.1);
+          }
+          h2{
+            font-size: 16px;
+            margin-left: 10px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+          }
+          h2:hover{
+            transform: scale(1.1);
+          }
+    }
+    .right{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        margin-right: 20px;
+        img{
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+        img:hover{
+            transform: scale(1.1);
+        }
+        h3{
+            font-size: 15px;
+            margin-right: 15px;
+            font-weight: bold;
+            color: rgb(10, 10, 216);
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+        h3:hover{
+            transform: scale(1.1);
+        }
+        h4{
+            font-size: 15px;
+            margin-left: 5px;
+            font-family: 'Golos';
+            font-weight: normal;
+            color: white;
+            font-family: 'Golos', sans-serif;
+            cursor: default;
+        }
+        .img {
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+          transition: transform 0.2s ease-in-out;
+        }
+        .image-container {
+          position: relative;
+          display: inline-block;
+        }
+        .notifications{
+          position: relative;
+          display: inline-block;
+          margin-right: 10px;
+        }
+        
+        .red-point {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background-color: red;
+        }
+    
+        .img:hover {
+          transform: scale(1.2);
+        }
+        .messages {
+          position: relative;
+          margin-right: 10px;
+        }
+        .more{
+          margin-left: 110px;
+          margin-bottom: 10px;
+          color: white;
+          font-size: 15px;
+          font-weight: bold;
+          transition: transform 0.3s ease-in-out;
+          cursor: pointer;
+      }
+      .more:hover{
+          color: #9340ff;
+      }
+    
+        .messageList {
+          position: absolute;
+          top: 20px;
+          right: 0;
+          width: 250px;
+          height: 400px;
+          background-color: #071025;
+          box-shadow: 0px 0px 10px black;
+          border-radius: 10px;
+          z-index: 20;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          padding: 10px;
+          overflow-x: auto;
+          white-space: nowrap;
+    
+          .h3 {
+            color: white;
+            font-size: 18px;
+            margin: 0px;
+            font-family: 'Tajawal', sans-serif;
+            font-weight: bold;
+          }
+    
+          .line {
+            width: 100%;
+            height: 1px;
+            background-color: gray;
+          }
+    
+          .list_channels {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            height: 50px;
+            padding: 5px 5px;
+            border-bottom: 1px solid gray;
+            cursor: pointer;
+            border-radius: 5px;
+    
+            img {
+              width: 30px;
+              height: 30px;
+            }
+    
+            .row4 {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              gap: 15px;
+            }
+    
+            .name {
+              color: white;
+              font-size: 13px;
+              font-family: 'Golos', sans-serif;
+            }
+    
+            .channel_message {
+              max-lines: 1;
+              color: rgb(211, 205, 205);
+              font-size: 14px;
+              font-family: 'Tajawal', sans-serif;
+            }
+    
+            .date {
+              color: white;
+              font-size: 10px;
+              font-family: 'Golos', sans-serif;
+            }
+          }
+    
+          .list_channels:hover {
+            background-color: #040a16;
+          }
+        }
+    }
+    .menu-icon{
+        display: none;
+    }
+    
+    
+}
+
+.drawer{
+    position: fixed;
+    display:flex;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    padding-top: 30px;
+    padding-right: 10px;
+    background-color: rgba(16,23,40,255);
+    padding-left: 20px;
+    z-index: 999;
+    .right1{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .user{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        cursor: pointer;
+        img{
+          width: 30px;
+          height: 30px;
+        }
+        p{
+          font-size: 13px;
+          font-weight: bold;
+          color: white;
+          padding-left: 15px;
+        }
+      }
+      img{
+        width: 20px;
+        height: 20px;
+      }
+      .message{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: -10px;
+        margin-bottom: -10px;
+        cursor: pointer;
+        p{
+          font-size: 16px;
+          font-weight: bold;
+          color:white;
+          padding-left: 10px;
+        }
+      }
+      h2{
+        color: white;
+      }
+    }
+    
+    .switchingtobuyer{
+        font-size: 10px;
+    }
+  }
+  
+  .left_drawer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 46%;
+    height: 100%;
+    backdrop-filter: blur(3px);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  @media screen and (max-width: 1000px) {
+    .body{
+        .image1{
+            display: flex;
+            height: 25px;
+            margin-left: 10px;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+        .right{
+            display: none;
+        }
+        .left{
+            display: none;
+        }
+        .menu-icon{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            color: #fff;
+            font-size: 25px;
+            cursor: pointer;
+          }
+    }
+    
+  }

@@ -1,0 +1,59 @@
+<div class="body">
+
+    <div class="search">
+        <input (keyup.enter)="getServices()" placeholder="Search" type="text" [(ngModel)]="search">
+        <img (click)="getServices()" src="/assets/navbar/search.png">
+    </div>
+
+    <div class="container">
+        <div class="title">
+            <div class="userid">Id</div>
+            <div class="userid">companyId</div>
+            <div class="name">name</div>
+            <div class="double">price</div>
+            <div class="double">review</div>
+            <div class="name">category</div>
+            <div class="double">nb_buy</div>
+            <div class="double">visible</div>
+        </div>
+        <div class="list" *ngFor="let list of servicesList;let index=index">
+            <div class="title title1" (click)="showEditService(index)">
+                <div class="userid">{{list.privateId}}</div>
+                <div class="userid">{{list.companyId}}</div>
+                <div class="name">{{list.name}}</div>
+                <div class="double">{{list.price}}</div>
+                <div class="double">{{list.review}}</div>
+                <div class="name">{{list.category}}</div>
+                <div class="double">{{list.nb_buy}}</div>
+                <div class="double">{{list.visible}}</div>
+            </div>
+        </div>
+    </div>
+    <pagination-controls (pageChange)="onPageChange($event)" [currentPage]="page" [totalItems]="totalItems" [itemsPerPage]="20" ></pagination-controls>
+</div>
+
+
+<div *ngIf="showEdit" class="editUser">
+    <div class="countainer">
+        <div class="close" (click)="showEdit=false">close</div>
+        <div class="row">
+            <div class="id">ServiceId : </div>
+            <div class="_id">{{service!.privateId}}</div>
+        </div>
+        <div class="country">
+            <select  class="input" name="category" id="category"  required [(ngModel)]="select">
+            <option value="Name" >Name</option>
+            <option value="price">price</option>
+            <option value="category">category</option>
+            <option value="nb_buy">nb_buy</option>
+          </select>
+        </div>
+        <input type="text" class="input" [(ngModel)]="update">
+        <div class="row">
+            <button class="update" (click)="editService()">Update</button>
+            <button *ngIf="service!.visible" class="update block" (click)="select='visible';update='false';editService()">Desactivate</button>
+            <button *ngIf="!service!.visible" class="update block" (click)="select='visible';update='true';editService()">Activate</button>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,57 @@
+
+
+    <div class="body">
+        <div (click)="onclick()" class="categories">
+            <div class="row">
+                <h1>Categories</h1>
+                <img class="arrow" src="/assets/navbar/arrow-down.png">
+            </div>
+            <h2 *ngIf="Categories">Graphics & Design</h2>
+            <h2 *ngIf="Categories">Digital Marketing</h2>
+            <h2 *ngIf="Categories">Writing &Translation</h2>
+            <h2 *ngIf="Categories">Programming & Tech</h2>
+            <h2 *ngIf="Categories">Business</h2>
+            <h2 *ngIf="Categories">Lifestyle</h2>
+        </div>
+        <div (click)="onclick1()" class="Ressources">
+            <div class="row">
+                <h1>Ressources</h1>
+                <img class="arrow" src="/assets/navbar/arrow-down.png">
+            </div>
+            <h2 *ngIf="Ressources">Prices</h2>
+            <h2 *ngIf="Ressources">FAQ</h2>
+            <h2 *ngIf="Ressources">Case studies</h2>
+            <h2 *ngIf="Ressources">Blog</h2>
+        </div>
+        <div (click)="onclick2()" class="info">
+            <div class="row">
+                <h1>B2B jctq</h1>
+                <img class="arrow" src="/assets/navbar/arrow-down.png">
+            </div>
+            <h2 *ngIf="info">About</h2>
+            <h2 *ngIf="info" (click)="clickContact()">Contact</h2>
+            <h2 *ngIf="info">Partnerships</h2>
+            <h2 *ngIf="info">Privacy Policy</h2>
+            <h2 *ngIf="info">Terms of use</h2>
+            </div>
+        <div (click)="onclick3()" class="contact">
+            <div class="row">
+                <h1>Contact</h1>
+                <img class="arrow" src="/assets/navbar/arrow-down.png">
+            </div>
+            <h2 *ngIf="contact">123-456-7890</h2>
+            <h2 *ngIf="contact">123 Anywhere St., Any City, ST 12</h2>
+            <h2 *ngIf="contact">hello@reallygreatsite.com</h2>
+        </div>
+    </div>
+    <div class="social">
+        <div class="left">
+            <div class="h3">Follow US</div>
+            <a href="https://www.linkedin.com/company/jeune-chambre-tunisienne-du-qu%C3%A9bec/"  target="_blank"><img src="/assets/footer/linkedin.png" ></a>
+            <a href="https://www.instagram.com/jctq_officiel/" target="_blank"><img src="/assets/footer/instagram.png"></a>
+            <a href="https://www.facebook.com/jctqca/" target="_blank"><img src="/assets/footer/facebook.png"></a>
+            <a href="https://twitter.com/JCTQ_" target="_blank"><img src="/assets/footer/twitter.png"></a>
+        </div>
+        <div class="right">©2023 B2b JCTQ.  All rights reserved</div>
+    </div>
+

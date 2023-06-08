@@ -1,0 +1,19 @@
+export interface userInterface{
+    userId:String;
+    email:String;
+    firstname:String;
+    lastname:String;
+    phone:String;
+    country:String;
+    state:String;
+    city:String;
+    zipcode:String;
+    address1:String;
+    address2:String;
+    prestataireID:String;
+    membership:boolean;
+    imageId:String;
+    message:boolean;
+    active:boolean;
+    notification:boolean;
+}

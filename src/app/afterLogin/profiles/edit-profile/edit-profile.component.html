@@ -1,0 +1,47 @@
+<div class="body">
+    <h1>Profile Photo</h1>
+    <div class="row">
+        <div class="changeImage">
+            <img (click)="fileInput.click()" (mouseover)="onMouseOver()" (mouseout)="onMouseOut()" src={{imageId}}>
+            <input class="chooseImage" type="file" accept="image/*" #fileInput (change)="onFileSelected($event)">
+        </div>
+        <div class="button button1" (click)="fileInput.click()">Change Photo</div>
+    </div>
+    <h1>FirstName</h1>
+    <div class="row">
+        <p *ngIf="!edit1">{{input1}}</p>
+        <input *ngIf="edit1" type="text" [(ngModel)]="input1">
+        <div class="row1">
+            <div class="button" (click)="onEdit1()">{{edit1_text}}</div>
+            <div class="button" *ngIf="edit1" (click)="onSave1('FirstName',input1!)">Save</div>
+        </div>
+    </div>
+    <h1>LastName</h1>
+    <div class="row">
+        <p *ngIf="!edit2">{{input2}}</p>
+        <input *ngIf="edit2" type="text" [(ngModel)]="input2">
+        <div class="row1">
+            <div class="button" (click)="onEdit2()">{{edit2_text}}</div>
+            <div class="button" *ngIf="edit2" (click)="onSave1('LastName',input2!)">Save</div>
+        </div>
+    </div>
+    <h1>Email</h1>
+    <div class="row">
+        <p *ngIf="!edit3">{{input3}}</p>
+        <input *ngIf="edit3" type="text" [(ngModel)]="input3">
+        <div class="row1">
+            <div class="button" (click)="onEdit3()">{{edit3_text}}</div>
+            <div class="button" *ngIf="edit3" (click)="onSave1('Email',input3!)">Save</div>
+        </div>
+    </div>
+    <h1>Phone</h1>
+    <div class="row">
+        <p *ngIf="!edit4">{{input4}}</p>
+        <input *ngIf="edit4" type="text" [(ngModel)]="input4">
+        <div class="row1">
+            <div class="button" (click)="onEdit4()">{{edit4_text}}</div>
+            <div class="button" *ngIf="edit4" (click)="onSave1('Phone',input4!)">Save</div>
+        </div>
+    </div>
+</div>
+<app-spinkit *ngIf="isLoading"></app-spinkit>

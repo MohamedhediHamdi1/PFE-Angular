@@ -1,0 +1,99 @@
+<div class="body">
+    <div class="earnings">
+        <h1>Analytics</h1>
+        <div class="row">
+            <div class="column">
+                <div class="title">Services</div>
+                <div class="card">
+                    <div class="row1">
+                        <div class="title1">Services : </div>
+                        <div class="title1">{{analytics_list?.totalServices}}/5</div>
+                    </div>
+                    <div class="row1">
+                        <div class="title1">Services clicks : </div>
+                        <div class="title1">{{analytics_list?.servicesClicks}}</div>
+                    </div>
+                    <div class="row1">
+                        <div class="title1">Services impressions : </div>
+                        <div class="title1">{{analytics_list?.servicesImpression}}</div>
+                    </div>
+                    <div class="row1">
+                        <div class="title1">Avg Services price : </div>
+                        <div class="title1">${{analytics_list?.avgServicePrice}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="title">Orders</div>
+                <div class="card">
+                    <div class="row1">
+                        <div class="title1">Total orders : </div>
+                        <div class="title1">{{analytics_list?.totalOrders}}</div>
+                    </div>
+                    <div class="row1">
+                        <div class="title1">New orders : </div>
+                        <div class="title1">{{analytics_list?.newOrders}}</div>
+                    </div>
+                    <div class="row1">
+                        <div class="title1">Completed orders : </div>
+                        <div class="title1">{{analytics_list?.completedOrders}}</div>
+                    </div>
+                    <div class="row1">
+                        <div class="title1">Accepted orders : </div>
+                        <div class="title1">{{analytics_list?.acceptedOrders}}</div>
+                    </div>
+                    <div class="row1">
+                        <div class="title1">Cancelled orders : </div>
+                        <div class="title1">{{analytics_list?.cancelledOrders}}</div>
+                    </div>
+                    <div class="row1">
+                        <div class="title1">Cancelled orders by clients: </div>
+                        <div class="title1">{{analytics_list?.cancelledOrdersByClient}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="title">Earnings</div>
+                <div class="card">
+                    <div class="row1">
+                        <div class="title1">Total earnings : </div>
+                        <div class="title1">${{analytics_list?.totalEarnings}}</div>
+                    </div>
+                    <div class="row1">
+                        <div class="title1">Last mouth earnings : </div>
+                        <div class="title1">${{analytics_list?.lastMounthEarnings}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2>Services</h2>
+        <div class="container">
+            <div class=" column column1">
+                <div class="row1 row2">
+                    <div class="service">Service</div>
+                    <div class="impression">Impressions</div>
+                    <div class="clicks">Clicks</div>
+                    <div class="orders">Orders</div>
+                    <div class="hide_button"></div>
+                    <div class="hide_button"></div>
+                    <div class="hide_button"></div>
+                </div>
+            </div>
+            <div  class="column" *ngFor="let list of service_list">
+                <div class="row1">
+                    <div class="service service1">
+                        <div class="row3">
+                            <img src="assets/user.png">
+                            <p> {{list.name}}</p>
+                        </div>
+                    </div>
+                    <div class="impression">{{list.impression}}</div>
+                    <div class="clicks">{{list.nb_click}}</div>
+                    <div class="orders">{{list.nb_buy}}</div>
+                    <div class="hide_button" (click)="editService(list.privateId)"><button>Edit</button></div>
+                    <div class="hide_button hide" (click)="onHide(list.privateId,'hideunhide')"><button>{{hideAndUnHide(list.visible)}}</button></div>
+                    <div class="hide_button delete" (click)="onHide(list.privateId,'delete')"><button>Delete</button></div>
+            </div>
+        </div>
+    </div>
+</div>

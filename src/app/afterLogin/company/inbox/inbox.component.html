@@ -1,0 +1,64 @@
+<div class="body">
+    <div class="row">
+        <div class="column1">
+            <div class="allConv">
+                <div class="text1" *ngIf="!search">All Conversations</div>
+                <input type="text" *ngIf="search" placeholder="Search" [(ngModel)]="search_channels" (keyup.enter)="getChannels()">
+                <img src="assets/search1.png" (click)="toggleSerach()">
+            </div>
+            <div class="channels">
+                <div class="list_channels" *ngFor="let list of channels ;let i=index" (click)="selectChannel(list.channelId!,i)"  [ngStyle]="list.vue==true && list.channelId==currentChannel ? {'background-color':'#050a18'}:{}">
+                    <div class="row4">
+                        <img src="{{image2}}">
+                        <div class="column3">
+                            <div class="name" *ngIf="list.senderId!=companyId" [ngStyle]="list.vue==false ? {'font-size':'18px'}:{}">{{list.senderName}}</div>
+                            <div class="name" *ngIf="list.senderId ==companyId" [ngStyle]="list.vue==false ? {'font-size':'18px'}:{}">{{list.recieverName}}</div>
+                            <div class="channel_message" [ngStyle]="list.vue==false ? {'font-weight':'bold','font-size':'16px','color':'white'}:{}">{{ list.lastMessage | slice:0:35 }}{{ list.lastMessage!.length > 35 ? '...' : '' }}</div>
+                        </div>
+                    </div>
+                    <div class="date">{{list.lastMessageDate}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="column2">
+            <div class="title">
+                <span></span>
+                <div class="name">user name</div>
+                <div class="row5">
+                    <img src="assets/star.png" title="Favorite">
+                    <img src="assets/open-envelope.png" title="Mark as Unread" (click)="vueChannel('0')">
+                    <img src="assets/delete.png" title="Delete Conversation" (click)="deleteChannel()">
+                </div>
+            </div>
+            <div class="messages">
+                <div class="showMore" (click)="showMore()" *ngIf="messages?.length==10">More</div>
+                <div class="message_list" *ngFor="let list of messages; let i =index"
+                    [ngStyle]="list.senderId==companyId ? {'flex-direction':'row-reverse'}:{}" (mouseleave)="leave()">
+                    <img src="{{image1}}" *ngIf="list.senderId==companyId">
+                    <img src="{{image2}}" *ngIf="list.senderId !=companyId">
+                    <div class="column8" [ngStyle]="list.senderId==companyId ? {'align-items':'flex-start'}:{}" (contextmenu)="onRightClick($event,i)">
+                        <div class="row8" [ngStyle]="list.senderId==companyId ? {'flex-direction':'row-reverse'}:{}">
+                            <div class="text" [ngStyle]="list.senderId==companyId ? {'background-color':'blue'}:{}" [ngStyle]="list.message=='Deleted' ? {'background-color':'red','padding':'2px 15px'}:{}">{{list.message}}</div>
+                            <div class="time" >{{list.datemessage}}</div>
+                            <div class="lastDate" *ngIf="i == messages!.length - 1">{{list.datemessage}}</div>
+                        </div>
+                        <div class="delete" *ngIf="list.showDelete && list.senderId==companyId" (click)="deleteMessages(list.messageId!)">Delete</div>
+                        <div class="delete" *ngIf="list.showDelete && list.senderId!=companyId" (click)="reportMessages(list.messageId!)">Report</div>
+                    </div>  
+                </div>
+                <div class="back" (click)="back()" *ngIf="messagePage !=1">Back</div>
+
+                <div class="row5">
+                    <input type="text" placeholder="Type a message" maxlength="100" [(ngModel)]="message_input" (keyup.enter)="sendMessages()">
+                    <div class="emoji" (click)="togleEmoji()">😀</div>
+                    <div class="emoji_list" *ngIf="showEmojis">
+                        <div class="li" *ngFor="let emoji of emojis" (click)="addEmoji(emoji)">{{emoji}}</div>
+                    </div>
+                    <button (click)="sendMessages()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-spinkit *ngIf="isLoading"></app-spinkit>

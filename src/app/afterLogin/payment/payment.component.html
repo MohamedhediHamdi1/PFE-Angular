@@ -1,0 +1,74 @@
+<div class="body">
+    <div class="payments">
+        <h2>Payment Options</h2>
+        <div class="row" (click)="creditCard=!creditCard;paypal=!creditCard">
+            <input type="checkbox" id="my-checkbox" [(ngModel)]="creditCard" (click)="creditCard=!creditCard;paypal=!creditCard">
+            <label for="my-checkbox"></label>
+            <div class="title">Credit & Debit Cards</div>
+            <img src="assets/visa.png">
+            <img src="assets/mastercard.png">
+            <img src="assets/american-express.png">
+        </div>
+        <div class="credicard" *ngIf="creditCard">
+            <div class="row1">
+                <div class="column1 card-number">
+                    <label for="card-number">Card Number:</label>
+                    <input type="text" name="card-number" placeholder="1234 5678 9012 3456" [(ngModel)]="card_number"
+                        (ngModelChange)="formatCardNumber()" maxlength="19" (keypress)="onKeyPress($event)">
+                    <div class="error" *ngIf="!isValidCreditCardNumber(card_number) && card_number !=''">Invalid card</div>
+                </div>
+
+                <div class="column1 expiration-date">
+                    <label for="expiration-date">Expiration Date:</label>
+                    <input type="text" name="expiration-date" placeholder="MM/YY" required
+                     maxlength="5" [(ngModel)]="expiration_date" (ngModelChange)="formatExpirationDate()" (keypress)="onKeyPress($event)">
+                     <div class="error" *ngIf="!isValidExpirationDate(expiration_date)  && expiration_date !=''">Invalid Date</div>
+                </div>
+
+                <div class="column1 security-code">
+                    <label for="security-code">Security Code:</label>
+                    <input type="text" name="security-code" maxlength="3" placeholder="123" [(ngModel)]="Security_code" (keypress)="onKeyPress($event)">
+                    <div class="error" *ngIf="!formatSecurity_code() && Security_code.length!=0">Invalid code</div>
+                </div>
+            </div>
+            <div class="row1">
+                <div class="column1 first-name">
+                    <label for="first-name">First Name:</label>
+                    <input type="text" name="first-name" required [(ngModel)]="firstName">
+                </div>
+                <div class="column1 first-name">
+                    <label for="last-name">Last Name:</label>
+                    <input type="text" name="last-name" required [(ngModel)]="lastName">
+                </div>
+            </div>
+        </div>
+        <div class="row" (click)="paypal=!paypal;creditCard=!paypal">
+            <input type="checkbox" id="my-checkbox" [(ngModel)]="paypal" (click)="paypal=!paypal;creditCard=!paypal">
+            <label for="my-checkbox"></label>
+            <img src="assets/paypal.png" class="paypal">
+        </div>
+    </div>
+    <div class="service">
+        <div class="rowservice">
+            <img src="{{imageUrl}}">
+            <div class="title">{{service?.name}}</div>
+        </div>
+        <div class="line"></div>
+        <div class="row3">
+            <div class="text">Service fee</div>
+            <div class="price">$2.23</div>
+        </div>
+        <div class="line"></div>
+        <div class="row3">
+            <div class="text">Total</div>
+            <div class="price">$102.23</div>
+        </div>
+        <div class="container">
+            <div class="button" *ngIf="creditCard" (click)="createOrder()">Confirm & Pay</div>
+            <div class="button button1" *ngIf="paypal" (click)="createOrder()"><img src="assets/paypal1.png">Checkout</div>
+        </div>
+    </div>
+</div>
+
+<app-spinkit *ngIf="isLoading"></app-spinkit>
+
